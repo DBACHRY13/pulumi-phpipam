@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{CCCBE91A-345F-494D-B858-641F79089622}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pulumi.Phpipam", "sdk\dotnet\Pulumi.Phpipam.csproj", "{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nodejs", "nodejs", "{3BBF53C6-92D2-4B10-BD95-4C55D5F9AF4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "node_modules", "node_modules", "{F3B44DE2-A65D-4638-88C5-AB7028E398EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@pulumi", "@pulumi", "{CFAFB5C4-3F9B-48D3-851C-38E314C5123C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pulumi", "pulumi", "{7E35A4EC-868E-437A-8361-C8DD74DCF8C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1676BDAA-895B-4DE1-A793-91B4116117D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "automation", "automation", "{0ECFCB57-53AB-4857-B10B-A20610D6564F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{7A819302-6DC8-4558-B6DC-6713DF70D001}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProj", "sdk\nodejs\node_modules\@pulumi\pulumi\tests\automation\data\testproj_dotnet\TestProj.csproj", "{96FD9142-3982-4F88-AA48-740469873688}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FD9142-3982-4F88-AA48-740469873688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FD9142-3982-4F88-AA48-740469873688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FD9142-3982-4F88-AA48-740469873688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FD9142-3982-4F88-AA48-740469873688}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{85E8DB78-95C4-4DB5-B3F2-8EA1C7ED8C47} = {CCCBE91A-345F-494D-B858-641F79089622}
+		{3BBF53C6-92D2-4B10-BD95-4C55D5F9AF4D} = {CCCBE91A-345F-494D-B858-641F79089622}
+		{F3B44DE2-A65D-4638-88C5-AB7028E398EB} = {3BBF53C6-92D2-4B10-BD95-4C55D5F9AF4D}
+		{CFAFB5C4-3F9B-48D3-851C-38E314C5123C} = {F3B44DE2-A65D-4638-88C5-AB7028E398EB}
+		{7E35A4EC-868E-437A-8361-C8DD74DCF8C5} = {CFAFB5C4-3F9B-48D3-851C-38E314C5123C}
+		{1676BDAA-895B-4DE1-A793-91B4116117D4} = {7E35A4EC-868E-437A-8361-C8DD74DCF8C5}
+		{0ECFCB57-53AB-4857-B10B-A20610D6564F} = {1676BDAA-895B-4DE1-A793-91B4116117D4}
+		{7A819302-6DC8-4558-B6DC-6713DF70D001} = {0ECFCB57-53AB-4857-B10B-A20610D6564F}
+		{96FD9142-3982-4F88-AA48-740469873688} = {7A819302-6DC8-4558-B6DC-6713DF70D001}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {610918F5-3251-4543-9CE9-3DA1ECAEF5D4}
+	EndGlobalSection
+EndGlobal
