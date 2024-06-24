@@ -1,0 +1,2402 @@
+{
+    "name": "phpipam",
+    "description": "A Pulumi package for creating and managing phpipam cloud resources.",
+    "keywords": [
+        "DHW",
+        "phpipam",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`phpipam` Terraform Provider](https://github.com/lord-kyron/terraform-provider-phpipam).",
+    "repository": "https://github.com/DBACHRY13/pulumi-phpipam",
+    "publisher": "DHW",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20"
+        },
+        "go": {
+            "importBasePath": "github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true
+        },
+        "nodejs": {
+            "packageDescription": "A Pulumi package for creating and managing phpipam cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/lord-kyron/terraform-provider-phpipam)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-phpipam` repo](https://github.com/DBACHRY13/pulumi-phpipam/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-phpipam` repo](https://github.com/lord-kyron/terraform-provider-phpipam/issues).",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/lord-kyron/terraform-provider-phpipam)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-phpipam` repo](https://github.com/DBACHRY13/pulumi-phpipam/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-phpipam` repo](https://github.com/lord-kyron/terraform-provider-phpipam/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
+        }
+    },
+    "config": {
+        "variables": {
+            "appId": {
+                "type": "string",
+                "description": "The application ID required for API requests\n"
+            },
+            "endpoint": {
+                "type": "string",
+                "description": "The full URL (plus path) to the API endpoint\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+            },
+            "nestCustomFields": {
+                "type": "boolean",
+                "description": "Whether the API client is configured to nest custom values.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the PHPIPAM account\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "The username of the PHPIPAM account\n"
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the phpipam package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "appId": {
+                "type": "string",
+                "description": "The application ID required for API requests\n"
+            },
+            "endpoint": {
+                "type": "string",
+                "description": "The full URL (plus path) to the API endpoint\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+            },
+            "nestCustomFields": {
+                "type": "boolean",
+                "description": "Whether the API client is configured to nest custom values.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the PHPIPAM account\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "The username of the PHPIPAM account\n"
+            }
+        },
+        "inputProperties": {
+            "appId": {
+                "type": "string",
+                "description": "The application ID required for API requests\n"
+            },
+            "endpoint": {
+                "type": "string",
+                "description": "The full URL (plus path) to the API endpoint\n"
+            },
+            "insecure": {
+                "type": "boolean",
+                "description": "Whether server should be accessed without verifying the TLS certificate.\n"
+            },
+            "nestCustomFields": {
+                "type": "boolean",
+                "description": "Whether the API client is configured to nest custom values.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the PHPIPAM account\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "The username of the PHPIPAM account\n"
+            }
+        }
+    },
+    "resources": {
+        "phpipam:index/address:Address": {
+            "properties": {
+                "addressId": {
+                    "type": "integer",
+                    "description": "The ID of the IP address in the PHPIPAM database.\n"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this address.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description provided to this IP address.\n"
+                },
+                "deviceId": {
+                    "type": "integer",
+                    "description": "The ID of the associated device in the PHPIPAM\ndatabase.\n"
+                },
+                "editDate": {
+                    "type": "string",
+                    "description": "The last time this resource was modified.\n"
+                },
+                "excludePing": {
+                    "type": "boolean",
+                    "description": "`true` if this address is excluded from ping\nprobes.\n"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "The hostname supplied to this IP address.\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The IP address to reserve.\n"
+                },
+                "isGateway": {
+                    "type": "boolean",
+                    "description": "`true` if this IP address has been designated as a\ngateway.\n"
+                },
+                "lastSeen": {
+                    "type": "string",
+                    "description": "The last time this IP address answered ping probes.\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "The MAC address provided to this IP address.\n"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "The note supplied to this IP address.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "The owner name provided to this IP address.\n"
+                },
+                "ptrRecordId": {
+                    "type": "integer",
+                    "description": "The ID of the associated PTR record in the\nPHPIPAM database.\n"
+                },
+                "removeDnsOnDelete": {
+                    "type": "boolean"
+                },
+                "skipPtrRecord": {
+                    "type": "boolean",
+                    "description": "`true` if PTR records are not being created\nfor this IP address.\n"
+                },
+                "stateTagId": {
+                    "type": "integer",
+                    "description": "The tag ID in the database for the IP address'\nspecific state. **NOTE:** This is currently represented as an integer but may\nchange to the specific string representation at a later time.\n"
+                },
+                "subnetId": {
+                    "type": "integer",
+                    "description": "The database ID of the subnet this IP address\nbelongs to.\n"
+                },
+                "switchPortLabel": {
+                    "type": "string",
+                    "description": "A string port label that is associated with\nthis address.\n"
+                }
+            },
+            "required": [
+                "addressId",
+                "description",
+                "deviceId",
+                "editDate",
+                "excludePing",
+                "hostname",
+                "ipAddress",
+                "isGateway",
+                "lastSeen",
+                "macAddress",
+                "note",
+                "owner",
+                "ptrRecordId",
+                "skipPtrRecord",
+                "stateTagId",
+                "subnetId",
+                "switchPortLabel"
+            ],
+            "inputProperties": {
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this address.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description provided to this IP address.\n"
+                },
+                "deviceId": {
+                    "type": "integer",
+                    "description": "The ID of the associated device in the PHPIPAM\ndatabase.\n"
+                },
+                "excludePing": {
+                    "type": "boolean",
+                    "description": "`true` if this address is excluded from ping\nprobes.\n"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "The hostname supplied to this IP address.\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The IP address to reserve.\n",
+                    "willReplaceOnChanges": true
+                },
+                "isGateway": {
+                    "type": "boolean",
+                    "description": "`true` if this IP address has been designated as a\ngateway.\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "The MAC address provided to this IP address.\n"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "The note supplied to this IP address.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "The owner name provided to this IP address.\n"
+                },
+                "ptrRecordId": {
+                    "type": "integer",
+                    "description": "The ID of the associated PTR record in the\nPHPIPAM database.\n"
+                },
+                "removeDnsOnDelete": {
+                    "type": "boolean"
+                },
+                "skipPtrRecord": {
+                    "type": "boolean",
+                    "description": "`true` if PTR records are not being created\nfor this IP address.\n"
+                },
+                "stateTagId": {
+                    "type": "integer",
+                    "description": "The tag ID in the database for the IP address'\nspecific state. **NOTE:** This is currently represented as an integer but may\nchange to the specific string representation at a later time.\n"
+                },
+                "subnetId": {
+                    "type": "integer",
+                    "description": "The database ID of the subnet this IP address\nbelongs to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "switchPortLabel": {
+                    "type": "string",
+                    "description": "A string port label that is associated with\nthis address.\n"
+                }
+            },
+            "requiredInputs": [
+                "subnetId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Address resources.\n",
+                "properties": {
+                    "addressId": {
+                        "type": "integer",
+                        "description": "The ID of the IP address in the PHPIPAM database.\n"
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this address.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description provided to this IP address.\n"
+                    },
+                    "deviceId": {
+                        "type": "integer",
+                        "description": "The ID of the associated device in the PHPIPAM\ndatabase.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The last time this resource was modified.\n"
+                    },
+                    "excludePing": {
+                        "type": "boolean",
+                        "description": "`true` if this address is excluded from ping\nprobes.\n"
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "The hostname supplied to this IP address.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "The IP address to reserve.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "isGateway": {
+                        "type": "boolean",
+                        "description": "`true` if this IP address has been designated as a\ngateway.\n"
+                    },
+                    "lastSeen": {
+                        "type": "string",
+                        "description": "The last time this IP address answered ping probes.\n"
+                    },
+                    "macAddress": {
+                        "type": "string",
+                        "description": "The MAC address provided to this IP address.\n"
+                    },
+                    "note": {
+                        "type": "string",
+                        "description": "The note supplied to this IP address.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The owner name provided to this IP address.\n"
+                    },
+                    "ptrRecordId": {
+                        "type": "integer",
+                        "description": "The ID of the associated PTR record in the\nPHPIPAM database.\n"
+                    },
+                    "removeDnsOnDelete": {
+                        "type": "boolean"
+                    },
+                    "skipPtrRecord": {
+                        "type": "boolean",
+                        "description": "`true` if PTR records are not being created\nfor this IP address.\n"
+                    },
+                    "stateTagId": {
+                        "type": "integer",
+                        "description": "The tag ID in the database for the IP address'\nspecific state. **NOTE:** This is currently represented as an integer but may\nchange to the specific string representation at a later time.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The database ID of the subnet this IP address\nbelongs to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "switchPortLabel": {
+                        "type": "string",
+                        "description": "A string port label that is associated with\nthis address.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/firstFreeAddress:FirstFreeAddress": {
+            "properties": {
+                "addressId": {
+                    "type": "integer"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "integer"
+                },
+                "editDate": {
+                    "type": "string"
+                },
+                "excludePing": {
+                    "type": "boolean"
+                },
+                "hostname": {
+                    "type": "string"
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "isGateway": {
+                    "type": "boolean"
+                },
+                "lastSeen": {
+                    "type": "string"
+                },
+                "macAddress": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ptrRecordId": {
+                    "type": "integer"
+                },
+                "skipPtrRecord": {
+                    "type": "boolean"
+                },
+                "stateTagId": {
+                    "type": "integer"
+                },
+                "subnetId": {
+                    "type": "integer"
+                },
+                "switchPortLabel": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "addressId",
+                "description",
+                "deviceId",
+                "editDate",
+                "excludePing",
+                "hostname",
+                "ipAddress",
+                "isGateway",
+                "lastSeen",
+                "macAddress",
+                "note",
+                "owner",
+                "ptrRecordId",
+                "skipPtrRecord",
+                "stateTagId",
+                "subnetId",
+                "switchPortLabel"
+            ],
+            "inputProperties": {
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "integer"
+                },
+                "excludePing": {
+                    "type": "boolean"
+                },
+                "hostname": {
+                    "type": "string"
+                },
+                "isGateway": {
+                    "type": "boolean"
+                },
+                "macAddress": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ptrRecordId": {
+                    "type": "integer"
+                },
+                "skipPtrRecord": {
+                    "type": "boolean"
+                },
+                "stateTagId": {
+                    "type": "integer"
+                },
+                "subnetId": {
+                    "type": "integer",
+                    "willReplaceOnChanges": true
+                },
+                "switchPortLabel": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "subnetId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FirstFreeAddress resources.\n",
+                "properties": {
+                    "addressId": {
+                        "type": "integer"
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "deviceId": {
+                        "type": "integer"
+                    },
+                    "editDate": {
+                        "type": "string"
+                    },
+                    "excludePing": {
+                        "type": "boolean"
+                    },
+                    "hostname": {
+                        "type": "string"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "isGateway": {
+                        "type": "boolean"
+                    },
+                    "lastSeen": {
+                        "type": "string"
+                    },
+                    "macAddress": {
+                        "type": "string"
+                    },
+                    "note": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "ptrRecordId": {
+                        "type": "integer"
+                    },
+                    "skipPtrRecord": {
+                        "type": "boolean"
+                    },
+                    "stateTagId": {
+                        "type": "integer"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "willReplaceOnChanges": true
+                    },
+                    "switchPortLabel": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/firstFreeSubnet:FirstFreeSubnet": {
+            "properties": {
+                "allowIpRequests": {
+                    "type": "boolean"
+                },
+                "createPtrRecords": {
+                    "type": "boolean"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayHostnames": {
+                    "type": "boolean"
+                },
+                "editDate": {
+                    "type": "string"
+                },
+                "gateway": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "gatewayId": {
+                    "type": "string"
+                },
+                "hostDiscoveryEnabled": {
+                    "type": "boolean"
+                },
+                "includeInPing": {
+                    "type": "boolean"
+                },
+                "isFolder": {
+                    "type": "boolean"
+                },
+                "isFull": {
+                    "type": "boolean"
+                },
+                "linkedSubnetId": {
+                    "type": "integer"
+                },
+                "locationId": {
+                    "type": "integer"
+                },
+                "masterSubnetId": {
+                    "type": "integer"
+                },
+                "nameserverId": {
+                    "type": "integer"
+                },
+                "nameservers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "parentSubnetId": {
+                    "type": "integer"
+                },
+                "permissions": {
+                    "type": "string"
+                },
+                "resolveDns": {
+                    "type": "boolean"
+                },
+                "scanAgentId": {
+                    "type": "integer"
+                },
+                "sectionId": {
+                    "type": "integer"
+                },
+                "showName": {
+                    "type": "boolean"
+                },
+                "subnetAddress": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "integer"
+                },
+                "subnetMask": {
+                    "type": "integer"
+                },
+                "utilizationThreshold": {
+                    "type": "integer"
+                },
+                "vlanId": {
+                    "type": "integer"
+                },
+                "vrfId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "allowIpRequests",
+                "createPtrRecords",
+                "customFields",
+                "description",
+                "displayHostnames",
+                "editDate",
+                "gateway",
+                "gatewayId",
+                "hostDiscoveryEnabled",
+                "includeInPing",
+                "isFolder",
+                "isFull",
+                "linkedSubnetId",
+                "locationId",
+                "masterSubnetId",
+                "nameserverId",
+                "nameservers",
+                "parentSubnetId",
+                "permissions",
+                "resolveDns",
+                "scanAgentId",
+                "sectionId",
+                "showName",
+                "subnetAddress",
+                "subnetId",
+                "subnetMask",
+                "utilizationThreshold",
+                "vlanId",
+                "vrfId"
+            ],
+            "inputProperties": {
+                "allowIpRequests": {
+                    "type": "boolean"
+                },
+                "createPtrRecords": {
+                    "type": "boolean"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayHostnames": {
+                    "type": "boolean"
+                },
+                "hostDiscoveryEnabled": {
+                    "type": "boolean"
+                },
+                "includeInPing": {
+                    "type": "boolean"
+                },
+                "isFolder": {
+                    "type": "boolean"
+                },
+                "isFull": {
+                    "type": "boolean"
+                },
+                "linkedSubnetId": {
+                    "type": "integer"
+                },
+                "locationId": {
+                    "type": "integer"
+                },
+                "masterSubnetId": {
+                    "type": "integer"
+                },
+                "nameserverId": {
+                    "type": "integer"
+                },
+                "parentSubnetId": {
+                    "type": "integer",
+                    "willReplaceOnChanges": true
+                },
+                "resolveDns": {
+                    "type": "boolean"
+                },
+                "scanAgentId": {
+                    "type": "integer"
+                },
+                "sectionId": {
+                    "type": "integer"
+                },
+                "showName": {
+                    "type": "boolean"
+                },
+                "subnetMask": {
+                    "type": "integer",
+                    "willReplaceOnChanges": true
+                },
+                "utilizationThreshold": {
+                    "type": "integer"
+                },
+                "vlanId": {
+                    "type": "integer"
+                },
+                "vrfId": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "parentSubnetId",
+                "subnetMask"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FirstFreeSubnet resources.\n",
+                "properties": {
+                    "allowIpRequests": {
+                        "type": "boolean"
+                    },
+                    "createPtrRecords": {
+                        "type": "boolean"
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "displayHostnames": {
+                        "type": "boolean"
+                    },
+                    "editDate": {
+                        "type": "string"
+                    },
+                    "gateway": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "gatewayId": {
+                        "type": "string"
+                    },
+                    "hostDiscoveryEnabled": {
+                        "type": "boolean"
+                    },
+                    "includeInPing": {
+                        "type": "boolean"
+                    },
+                    "isFolder": {
+                        "type": "boolean"
+                    },
+                    "isFull": {
+                        "type": "boolean"
+                    },
+                    "linkedSubnetId": {
+                        "type": "integer"
+                    },
+                    "locationId": {
+                        "type": "integer"
+                    },
+                    "masterSubnetId": {
+                        "type": "integer"
+                    },
+                    "nameserverId": {
+                        "type": "integer"
+                    },
+                    "nameservers": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "parentSubnetId": {
+                        "type": "integer",
+                        "willReplaceOnChanges": true
+                    },
+                    "permissions": {
+                        "type": "string"
+                    },
+                    "resolveDns": {
+                        "type": "boolean"
+                    },
+                    "scanAgentId": {
+                        "type": "integer"
+                    },
+                    "sectionId": {
+                        "type": "integer"
+                    },
+                    "showName": {
+                        "type": "boolean"
+                    },
+                    "subnetAddress": {
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "type": "integer"
+                    },
+                    "subnetMask": {
+                        "type": "integer",
+                        "willReplaceOnChanges": true
+                    },
+                    "utilizationThreshold": {
+                        "type": "integer"
+                    },
+                    "vlanId": {
+                        "type": "integer"
+                    },
+                    "vrfId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/l2domain:L2domain": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "domainId": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "sections": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "domainId",
+                "name",
+                "sections"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "sections": {
+                    "type": "string"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering L2domain resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "domainId": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "sections": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/section:Section": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The section's description.\n"
+                },
+                "displayOrder": {
+                    "type": "integer",
+                    "description": "The section's display order number.\n"
+                },
+                "dnsResolverId": {
+                    "type": "integer",
+                    "description": "The ID of the DNS resolver to use in the\nsection.\n"
+                },
+                "editDate": {
+                    "type": "string",
+                    "description": "The date this resource was last edited.\n"
+                },
+                "masterSectionId": {
+                    "type": "integer",
+                    "description": "The ID of the parent section in the PHPIPAM\ndatabase.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the section.\n"
+                },
+                "permissions": {
+                    "type": "string"
+                },
+                "sectionId": {
+                    "type": "integer",
+                    "description": "The ID of the section in the PHPIPAM database.\n"
+                },
+                "showSupernetOnly": {
+                    "type": "boolean",
+                    "description": "`true` if supernets are only being shown in\nthe subnet listing.\n"
+                },
+                "showVlanInSubnetListing": {
+                    "type": "boolean",
+                    "description": "`true` if VLANs are being shown in\nthe subnet listing for this section.\n"
+                },
+                "showVrfInSubnetListing": {
+                    "type": "boolean",
+                    "description": "`true` if VRFs are being shown in\nthe subnet listing for this section.\n"
+                },
+                "strictMode": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is set up to check that IP\naddresses are valid for the subnets they are in.\n"
+                },
+                "subnetOrdering": {
+                    "type": "string",
+                    "description": "How subnets in this section are ordered.\n"
+                }
+            },
+            "required": [
+                "description",
+                "displayOrder",
+                "dnsResolverId",
+                "editDate",
+                "masterSectionId",
+                "name",
+                "permissions",
+                "sectionId",
+                "showSupernetOnly",
+                "showVlanInSubnetListing",
+                "showVrfInSubnetListing",
+                "strictMode",
+                "subnetOrdering"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The section's description.\n"
+                },
+                "displayOrder": {
+                    "type": "integer",
+                    "description": "The section's display order number.\n"
+                },
+                "dnsResolverId": {
+                    "type": "integer",
+                    "description": "The ID of the DNS resolver to use in the\nsection.\n"
+                },
+                "masterSectionId": {
+                    "type": "integer",
+                    "description": "The ID of the parent section in the PHPIPAM\ndatabase.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the section.\n"
+                },
+                "showSupernetOnly": {
+                    "type": "boolean",
+                    "description": "`true` if supernets are only being shown in\nthe subnet listing.\n"
+                },
+                "showVlanInSubnetListing": {
+                    "type": "boolean",
+                    "description": "`true` if VLANs are being shown in\nthe subnet listing for this section.\n"
+                },
+                "showVrfInSubnetListing": {
+                    "type": "boolean",
+                    "description": "`true` if VRFs are being shown in\nthe subnet listing for this section.\n"
+                },
+                "strictMode": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is set up to check that IP\naddresses are valid for the subnets they are in.\n"
+                },
+                "subnetOrdering": {
+                    "type": "string",
+                    "description": "How subnets in this section are ordered.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Section resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The section's description.\n"
+                    },
+                    "displayOrder": {
+                        "type": "integer",
+                        "description": "The section's display order number.\n"
+                    },
+                    "dnsResolverId": {
+                        "type": "integer",
+                        "description": "The ID of the DNS resolver to use in the\nsection.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last edited.\n"
+                    },
+                    "masterSectionId": {
+                        "type": "integer",
+                        "description": "The ID of the parent section in the PHPIPAM\ndatabase.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the section.\n"
+                    },
+                    "permissions": {
+                        "type": "string"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section in the PHPIPAM database.\n"
+                    },
+                    "showSupernetOnly": {
+                        "type": "boolean",
+                        "description": "`true` if supernets are only being shown in\nthe subnet listing.\n"
+                    },
+                    "showVlanInSubnetListing": {
+                        "type": "boolean",
+                        "description": "`true` if VLANs are being shown in\nthe subnet listing for this section.\n"
+                    },
+                    "showVrfInSubnetListing": {
+                        "type": "boolean",
+                        "description": "`true` if VRFs are being shown in\nthe subnet listing for this section.\n"
+                    },
+                    "strictMode": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is set up to check that IP\naddresses are valid for the subnets they are in.\n"
+                    },
+                    "subnetOrdering": {
+                        "type": "string",
+                        "description": "How subnets in this section are ordered.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/subnet:Subnet": {
+            "properties": {
+                "allowIpRequests": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet allows IP requests in\nPHPIPAM.\n"
+                },
+                "createPtrRecords": {
+                    "type": "boolean",
+                    "description": "`true` if PTR records are created for\naddresses in this subnet.\n"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this\nsubnet.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description set for the subnet.\n"
+                },
+                "displayHostnames": {
+                    "type": "boolean",
+                    "description": "`true` if hostnames are displayed instead of\nIP addresses in the address listing for this subnet.\n"
+                },
+                "editDate": {
+                    "type": "string",
+                    "description": "The date this resource was last updated.\n"
+                },
+                "gateway": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "gatewayId": {
+                    "type": "string"
+                },
+                "hostDiscoveryEnabled": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is included in\nnew host scans.\n"
+                },
+                "includeInPing": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is included in ping\nprobes.\n"
+                },
+                "isFolder": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is a folder and not an actual\nsubnet.\n"
+                },
+                "isFull": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet has been marked as full.\n"
+                },
+                "linkedSubnetId": {
+                    "type": "integer",
+                    "description": "The ID of the linked subnet in the PHPIPAM\ndatabase.\n"
+                },
+                "locationId": {
+                    "type": "integer",
+                    "description": "The ID of the location for this subnet.\n"
+                },
+                "masterSubnetId": {
+                    "type": "integer",
+                    "description": "The ID of the parent subnet for this subnet\nin the PHPIPAM database.\n"
+                },
+                "nameserverId": {
+                    "type": "integer",
+                    "description": "The ID of the nameserver used to assign PTR\nrecords for this subnet.\n"
+                },
+                "nameservers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "parentSubnetId": {
+                    "type": "integer"
+                },
+                "permissions": {
+                    "type": "string",
+                    "description": "A JSON representation of the permissions associated with this\nsubnet.\n"
+                },
+                "resolveDns": {
+                    "type": "boolean",
+                    "description": "`true` if enabled resolving of DNS names.\n"
+                },
+                "scanAgentId": {
+                    "type": "integer",
+                    "description": "The ID of the ping scan agent that is used for\nthis subnet.\n"
+                },
+                "sectionId": {
+                    "type": "integer",
+                    "description": "The ID of the section for this address in the\nPHPIPAM database.\n"
+                },
+                "showName": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet name is are shown in the\nsection, instead of the network address.\n"
+                },
+                "subnetAddress": {
+                    "type": "string",
+                    "description": "The network address of the subnet.\n"
+                },
+                "subnetId": {
+                    "type": "integer",
+                    "description": "The ID of the subnet in the PHPIPAM database.\n"
+                },
+                "subnetMask": {
+                    "type": "integer",
+                    "description": "The subnet mask, in bits.\n"
+                },
+                "utilizationThreshold": {
+                    "type": "integer",
+                    "description": "The subnet's utilization threshold.\n"
+                },
+                "vlanId": {
+                    "type": "integer",
+                    "description": "The ID of the VLAN for this subnet in the PHPIPAM\ndatabase.\n"
+                },
+                "vrfId": {
+                    "type": "integer",
+                    "description": "The ID of the VRF for this subnet in the PHPIPAM\ndatabase.\n"
+                }
+            },
+            "required": [
+                "allowIpRequests",
+                "createPtrRecords",
+                "description",
+                "displayHostnames",
+                "editDate",
+                "gateway",
+                "gatewayId",
+                "hostDiscoveryEnabled",
+                "includeInPing",
+                "isFolder",
+                "isFull",
+                "linkedSubnetId",
+                "locationId",
+                "masterSubnetId",
+                "nameserverId",
+                "nameservers",
+                "parentSubnetId",
+                "permissions",
+                "resolveDns",
+                "scanAgentId",
+                "sectionId",
+                "showName",
+                "subnetAddress",
+                "subnetId",
+                "subnetMask",
+                "utilizationThreshold",
+                "vlanId",
+                "vrfId"
+            ],
+            "inputProperties": {
+                "allowIpRequests": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet allows IP requests in\nPHPIPAM.\n"
+                },
+                "createPtrRecords": {
+                    "type": "boolean",
+                    "description": "`true` if PTR records are created for\naddresses in this subnet.\n"
+                },
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this\nsubnet.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description set for the subnet.\n"
+                },
+                "displayHostnames": {
+                    "type": "boolean",
+                    "description": "`true` if hostnames are displayed instead of\nIP addresses in the address listing for this subnet.\n"
+                },
+                "hostDiscoveryEnabled": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is included in\nnew host scans.\n"
+                },
+                "includeInPing": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is included in ping\nprobes.\n"
+                },
+                "isFolder": {
+                    "type": "boolean",
+                    "description": "`true` if this subnet is a folder and not an actual\nsubnet.\n"
+                },
+                "isFull": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet has been marked as full.\n"
+                },
+                "linkedSubnetId": {
+                    "type": "integer",
+                    "description": "The ID of the linked subnet in the PHPIPAM\ndatabase.\n"
+                },
+                "locationId": {
+                    "type": "integer",
+                    "description": "The ID of the location for this subnet.\n"
+                },
+                "masterSubnetId": {
+                    "type": "integer",
+                    "description": "The ID of the parent subnet for this subnet\nin the PHPIPAM database.\n"
+                },
+                "nameserverId": {
+                    "type": "integer",
+                    "description": "The ID of the nameserver used to assign PTR\nrecords for this subnet.\n"
+                },
+                "resolveDns": {
+                    "type": "boolean",
+                    "description": "`true` if enabled resolving of DNS names.\n"
+                },
+                "scanAgentId": {
+                    "type": "integer",
+                    "description": "The ID of the ping scan agent that is used for\nthis subnet.\n"
+                },
+                "sectionId": {
+                    "type": "integer",
+                    "description": "The ID of the section for this address in the\nPHPIPAM database.\n"
+                },
+                "showName": {
+                    "type": "boolean",
+                    "description": "`true` if the subnet name is are shown in the\nsection, instead of the network address.\n"
+                },
+                "subnetAddress": {
+                    "type": "string",
+                    "description": "The network address of the subnet.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subnetMask": {
+                    "type": "integer",
+                    "description": "The subnet mask, in bits.\n",
+                    "willReplaceOnChanges": true
+                },
+                "utilizationThreshold": {
+                    "type": "integer",
+                    "description": "The subnet's utilization threshold.\n"
+                },
+                "vlanId": {
+                    "type": "integer",
+                    "description": "The ID of the VLAN for this subnet in the PHPIPAM\ndatabase.\n"
+                },
+                "vrfId": {
+                    "type": "integer",
+                    "description": "The ID of the VRF for this subnet in the PHPIPAM\ndatabase.\n"
+                }
+            },
+            "requiredInputs": [
+                "sectionId",
+                "subnetAddress",
+                "subnetMask"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Subnet resources.\n",
+                "properties": {
+                    "allowIpRequests": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet allows IP requests in\nPHPIPAM.\n"
+                    },
+                    "createPtrRecords": {
+                        "type": "boolean",
+                        "description": "`true` if PTR records are created for\naddresses in this subnet.\n"
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this\nsubnet.\n\n⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description set for the subnet.\n"
+                    },
+                    "displayHostnames": {
+                        "type": "boolean",
+                        "description": "`true` if hostnames are displayed instead of\nIP addresses in the address listing for this subnet.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last updated.\n"
+                    },
+                    "gateway": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "gatewayId": {
+                        "type": "string"
+                    },
+                    "hostDiscoveryEnabled": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is included in\nnew host scans.\n"
+                    },
+                    "includeInPing": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is included in ping\nprobes.\n"
+                    },
+                    "isFolder": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is a folder and not an actual\nsubnet.\n"
+                    },
+                    "isFull": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet has been marked as full.\n"
+                    },
+                    "linkedSubnetId": {
+                        "type": "integer",
+                        "description": "The ID of the linked subnet in the PHPIPAM\ndatabase.\n"
+                    },
+                    "locationId": {
+                        "type": "integer",
+                        "description": "The ID of the location for this subnet.\n"
+                    },
+                    "masterSubnetId": {
+                        "type": "integer",
+                        "description": "The ID of the parent subnet for this subnet\nin the PHPIPAM database.\n"
+                    },
+                    "nameserverId": {
+                        "type": "integer",
+                        "description": "The ID of the nameserver used to assign PTR\nrecords for this subnet.\n"
+                    },
+                    "nameservers": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "parentSubnetId": {
+                        "type": "integer"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "A JSON representation of the permissions associated with this\nsubnet.\n"
+                    },
+                    "resolveDns": {
+                        "type": "boolean",
+                        "description": "`true` if enabled resolving of DNS names.\n"
+                    },
+                    "scanAgentId": {
+                        "type": "integer",
+                        "description": "The ID of the ping scan agent that is used for\nthis subnet.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section for this address in the\nPHPIPAM database.\n"
+                    },
+                    "showName": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet name is are shown in the\nsection, instead of the network address.\n"
+                    },
+                    "subnetAddress": {
+                        "type": "string",
+                        "description": "The network address of the subnet.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The ID of the subnet in the PHPIPAM database.\n"
+                    },
+                    "subnetMask": {
+                        "type": "integer",
+                        "description": "The subnet mask, in bits.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "utilizationThreshold": {
+                        "type": "integer",
+                        "description": "The subnet's utilization threshold.\n"
+                    },
+                    "vlanId": {
+                        "type": "integer",
+                        "description": "The ID of the VLAN for this subnet in the PHPIPAM\ndatabase.\n"
+                    },
+                    "vrfId": {
+                        "type": "integer",
+                        "description": "The ID of the VRF for this subnet in the PHPIPAM\ndatabase.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "phpipam:index/vlan:Vlan": {
+            "properties": {
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this\nVLAN.\n\n⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description supplied to the VLAN.\n"
+                },
+                "editDate": {
+                    "type": "string",
+                    "description": "The date this resource was last updated.\n"
+                },
+                "l2DomainId": {
+                    "type": "integer",
+                    "description": "The layer 2 domain ID in the PHPIPAM database.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name/label of the VLAN.\n"
+                },
+                "number": {
+                    "type": "integer",
+                    "description": "The number of the VLAN (the actual VLAN ID on your switch).\n"
+                },
+                "vlanId": {
+                    "type": "integer",
+                    "description": "The ID of the VLAN to look up. **NOTE:** this is the database ID,\nnot the VLAN number - if you need this, use the `number` parameter.\n"
+                }
+            },
+            "required": [
+                "description",
+                "editDate",
+                "l2DomainId",
+                "name",
+                "number",
+                "vlanId"
+            ],
+            "inputProperties": {
+                "customFields": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A key/value map of custom fields for this\nVLAN.\n\n⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description supplied to the VLAN.\n"
+                },
+                "l2DomainId": {
+                    "type": "integer",
+                    "description": "The layer 2 domain ID in the PHPIPAM database.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name/label of the VLAN.\n"
+                },
+                "number": {
+                    "type": "integer",
+                    "description": "The number of the VLAN (the actual VLAN ID on your switch).\n"
+                }
+            },
+            "requiredInputs": [
+                "number"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Vlan resources.\n",
+                "properties": {
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this\nVLAN.\n\n⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have\nall fields set to optional when using this plugin. For more info see\n[here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either\nensure that your fields also do not have default values, or ensure the default\nis set in your TF configuration. Diff loops may happen otherwise!\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description supplied to the VLAN.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last updated.\n"
+                    },
+                    "l2DomainId": {
+                        "type": "integer",
+                        "description": "The layer 2 domain ID in the PHPIPAM database.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name/label of the VLAN.\n"
+                    },
+                    "number": {
+                        "type": "integer",
+                        "description": "The number of the VLAN (the actual VLAN ID on your switch).\n"
+                    },
+                    "vlanId": {
+                        "type": "integer",
+                        "description": "The ID of the VLAN to look up. **NOTE:** this is the database ID,\nnot the VLAN number - if you need this, use the `number` parameter.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "phpipam:index/getAddress:getAddress": {
+            "description": "## # phpipam.Address\n\nThe `phpipam.Address` data source allows one to get information about a specific\nIP address within PHPIPAM. Use this address to get general information about a\nspecific IP address such as its host name, description and more.\n\nLookups for IP addresses can only happen at this time via its entry in the\ndatabase, or the IP address itself. Future versions of this resource, when such\nfeatures become generally available in the PHPIPAM API, will allow lookup based\non host name, allowing for better ability for this resource to discover IP\naddresses that have been pre-assigned for a specific resource.\n\n**Example:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst address = phpipam.getAddress({\n    ipAddress: \"10.10.1.1\",\n});\nexport const addressDescription = address.then(address =\u003e address.description);\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\naddress = phpipam.get_address(ip_address=\"10.10.1.1\")\npulumi.export(\"addressDescription\", address.description)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var address = Phpipam.GetAddress.Invoke(new()\n    {\n        IpAddress = \"10.10.1.1\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"addressDescription\"] = address.Apply(getAddressResult =\u003e getAddressResult.Description),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\taddress, err := phpipam.LookupAddress(ctx, \u0026phpipam.LookupAddressArgs{\n\t\t\tIpAddress: pulumi.StringRef(\"10.10.1.1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"addressDescription\", address.Description)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetAddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var address = PhpipamFunctions.getAddress(GetAddressArgs.builder()\n            .ipAddress(\"10.10.1.1\")\n            .build());\n\n        ctx.export(\"addressDescription\", address.applyValue(getAddressResult -\u003e getAddressResult.description()));\n    }\n}\n```\n```yaml\nvariables:\n  address:\n    fn::invoke:\n      Function: phpipam:getAddress\n      Arguments:\n        ipAddress: 10.10.1.1\noutputs:\n  addressDescription: ${address.description}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example With `subnet_id` when multiple subnets share the same ip ranges :**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst address = phpipam.getAddress({\n    ipAddress: \"10.10.1.1\",\n    subnetId: 3,\n});\nexport const addressDescription = address.then(address =\u003e address.description);\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\naddress = phpipam.get_address(ip_address=\"10.10.1.1\",\n    subnet_id=3)\npulumi.export(\"addressDescription\", address.description)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var address = Phpipam.GetAddress.Invoke(new()\n    {\n        IpAddress = \"10.10.1.1\",\n        SubnetId = 3,\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"addressDescription\"] = address.Apply(getAddressResult =\u003e getAddressResult.Description),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\taddress, err := phpipam.LookupAddress(ctx, \u0026phpipam.LookupAddressArgs{\n\t\t\tIpAddress: pulumi.StringRef(\"10.10.1.1\"),\n\t\t\tSubnetId:  pulumi.IntRef(3),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"addressDescription\", address.Description)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetAddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var address = PhpipamFunctions.getAddress(GetAddressArgs.builder()\n            .ipAddress(\"10.10.1.1\")\n            .subnetId(3)\n            .build());\n\n        ctx.export(\"addressDescription\", address.applyValue(getAddressResult -\u003e getAddressResult.description()));\n    }\n}\n```\n```yaml\nvariables:\n  address:\n    fn::invoke:\n      Function: phpipam:getAddress\n      Arguments:\n        ipAddress: 10.10.1.1\n        subnetId: 3\noutputs:\n  addressDescription: ${address.description}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example With `description`:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst address = phpipam.getAddress({\n    subnetId: 3,\n    description: \"Customer 1\",\n});\nexport const addressDescription = address.then(address =\u003e address.description);\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\naddress = phpipam.get_address(subnet_id=3,\n    description=\"Customer 1\")\npulumi.export(\"addressDescription\", address.description)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var address = Phpipam.GetAddress.Invoke(new()\n    {\n        SubnetId = 3,\n        Description = \"Customer 1\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"addressDescription\"] = address.Apply(getAddressResult =\u003e getAddressResult.Description),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\taddress, err := phpipam.LookupAddress(ctx, \u0026phpipam.LookupAddressArgs{\n\t\t\tSubnetId:    pulumi.IntRef(3),\n\t\t\tDescription: pulumi.StringRef(\"Customer 1\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"addressDescription\", address.Description)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetAddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var address = PhpipamFunctions.getAddress(GetAddressArgs.builder()\n            .subnetId(3)\n            .description(\"Customer 1\")\n            .build());\n\n        ctx.export(\"addressDescription\", address.applyValue(getAddressResult -\u003e getAddressResult.description()));\n    }\n}\n```\n```yaml\nvariables:\n  address:\n    fn::invoke:\n      Function: phpipam:getAddress\n      Arguments:\n        subnetId: 3\n        description: Customer 1\noutputs:\n  addressDescription: ${address.description}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example With `custom_field_filter`:**\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAddress.\n",
+                "properties": {
+                    "addressId": {
+                        "type": "integer"
+                    },
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of custom fields to search for. The filter\nvalues are regular expressions that follow the RE2 syntax for which you can\nfind documentation [here](https://github.com/google/re2/wiki/Syntax). All\nfields need to match for the match to succeed.\n\n⚠️ **NOTE:** `description`, `hostname`, and `custom_field_filter` fields return\nthe first match found without any warnings. If you are looking to return\nmultiple addresses, combine this data source with the\n`phpipam.getAddresses` data source.\n\n⚠️ **NOTE:** An empty or unspecified `custom_field_filter` value is the\nequivalent to a regular expression that matches everything, and hence will\nreturn the first address it sees in the subnet. Custom fileds must contain mandatory\nprefix `custom_`.\n\nArguments are processed in the following order of precedence:\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the IP address. `subnet_id` is required\nwhen using this field.\n"
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "The host name of the IP address. `subnet_id` is required when\nusing this field.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": ", and either one of `description`, `hostname`, or\n`custom_field_filter`\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAddress.\n",
+                "properties": {
+                    "addressId": {
+                        "type": "integer",
+                        "description": "The ID of the IP address in the PHPIPAM database.\n"
+                    },
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this address.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description provided to this IP address.\n"
+                    },
+                    "deviceId": {
+                        "type": "integer",
+                        "description": "The ID of the associated device in the PHPIPAM database.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The last time this resource was modified.\n"
+                    },
+                    "excludePing": {
+                        "type": "boolean",
+                        "description": "`true` if this address is excluded from ping probes.\n"
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "The hostname supplied to this IP address.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "the IP address.\n"
+                    },
+                    "isGateway": {
+                        "type": "boolean",
+                        "description": "`true` if this IP address has been designated as a gateway.\n"
+                    },
+                    "lastSeen": {
+                        "type": "string",
+                        "description": "The last time this IP address answered ping probes.\n"
+                    },
+                    "macAddress": {
+                        "type": "string",
+                        "description": "The MAC address provided to this IP address.\n"
+                    },
+                    "note": {
+                        "type": "string",
+                        "description": "The note supplied to this IP address.\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The owner name provided to this IP address.\n"
+                    },
+                    "ptrRecordId": {
+                        "type": "integer",
+                        "description": "The ID of the associated PTR record in the PHPIPAM\ndatabase.\n"
+                    },
+                    "skipPtrRecord": {
+                        "type": "boolean",
+                        "description": "`true` if PTR records are not being created for this IP\naddress.\n"
+                    },
+                    "stateTagId": {
+                        "type": "integer",
+                        "description": "The tag ID in the database for the IP address' specific\nstate. **NOTE:** This is currently represented as an integer but may change\nto the specific string representation at a later time.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The database ID of the subnet this IP address belongs to.\n"
+                    },
+                    "switchPortLabel": {
+                        "type": "string",
+                        "description": "A string port label that is associated with this\naddress.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "addressId",
+                    "customFields",
+                    "description",
+                    "deviceId",
+                    "editDate",
+                    "excludePing",
+                    "hostname",
+                    "ipAddress",
+                    "isGateway",
+                    "lastSeen",
+                    "macAddress",
+                    "note",
+                    "owner",
+                    "ptrRecordId",
+                    "skipPtrRecord",
+                    "stateTagId",
+                    "subnetId",
+                    "switchPortLabel",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getAddresses:getAddresses": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAddresses.\n",
+                "properties": {
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of custom fields to search for. The filter\nvalues are regular expressions that follow the RE2 syntax for which you can\nfind documentation [here](https://github.com/google/re2/wiki/Syntax). All\nfields need to match for the match to succeed.\n\n⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the\nequivalent to a regular expression that matches everything, and hence will\nreturn **all** addresses that contain the referenced custom field key!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the IP address. `subnet_id` is required\nwhen using this field.\n"
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "The host name of the IP address. `subnet_id` is required when\nusing this field.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The ID of the subnet that the address resides in. This is\nrequired to search on the `description` or `hostname` fields.\n\nOne of the following fields is required alongside `subnet_id`:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "subnetId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAddresses.\n",
+                "properties": {
+                    "addressIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of discovered IP address IDs.\n"
+                    },
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "hostname": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "addressIds",
+                    "subnetId",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getFirstFreeAddress:getFirstFreeAddress": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirstFreeAddress.\n",
+                "properties": {
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The ID of the subnet that the address resides in.\n\n**Example:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSubnetArgs;\nimport com.pulumi.phpipam.inputs.GetFirstFreeAddressArgs;\nimport com.pulumi.phpipam.Address;\nimport com.pulumi.phpipam.AddressArgs;\nimport com.pulumi.vsphere.VirtualMachine;\nimport com.pulumi.vsphere.VirtualMachineArgs;\nimport com.pulumi.vsphere.inputs.VirtualMachineNetworkInterfaceArgs;\nimport com.pulumi.vsphere.inputs.VirtualMachineDiskArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var subnet = PhpipamFunctions.getSubnet(GetSubnetArgs.builder()\n            .subnetAddress(\"10.10.2.0\")\n            .subnetMask(24)\n            .build());\n\n        final var nextAddress = PhpipamFunctions.getFirstFreeAddress(GetFirstFreeAddressArgs.builder()\n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .build());\n\n        // Reserve the address. Note that we use ignore_changes here to ensure that we\n        // don't end up re-allocating this address on future Terraform runs.\n        var newip = new Address(\"newip\", AddressArgs.builder()        \n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .ipAddress(nextAddress.applyValue(getFirstFreeAddressResult -\u003e getFirstFreeAddressResult.ipAddress()))\n            .hostname(\"tf-test-host.example.internal\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n        // Supply the IP address to an instance. Note that we are also ignoring\n        // network_interface here to ensure the IP address does not get re-calculated.\n        var web = new VirtualMachine(\"web\", VirtualMachineArgs.builder()        \n            .vcpu(2)\n            .memory(4096)\n            .networkInterfaces(VirtualMachineNetworkInterfaceArgs.builder()\n                .label(\"VM Network\")\n                .ipv4Address(nextAddress.applyValue(getFirstFreeAddressResult -\u003e getFirstFreeAddressResult.ipAddress()))\n                .build())\n            .disks(VirtualMachineDiskArgs.builder()\n                .template(\"centos-7\")\n                .build())\n            .ignoreChanges(network_interface)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Reserve the address. Note that we use ignore_changes here to ensure that we\n  # // don't end up re-allocating this address on future Terraform runs.\n  newip:\n    type: phpipam:Address\n    properties:\n      subnetId: ${subnet.subnetId}\n      ipAddress: ${nextAddress.ipAddress}\n      hostname: tf-test-host.example.internal\n      description: Managed by Terraform\n  # Supply the IP address to an instance. Note that we are also ignoring\n  # // network_interface here to ensure the IP address does not get re-calculated.\n  web:\n    type: vsphere:VirtualMachine\n    properties:\n      vcpu: 2\n      memory: 4096\n      networkInterfaces:\n        - label: VM Network\n          ipv4Address: ${nextAddress.ipAddress}\n      disks:\n        - template: centos-7\n      ignoreChanges:\n        - ${network_interface}\nvariables:\n  subnet:\n    fn::invoke:\n      Function: phpipam:getSubnet\n      Arguments:\n        subnetAddress: 10.10.2.0\n        subnetMask: 24\n  nextAddress:\n    fn::invoke:\n      Function: phpipam:getFirstFreeAddress\n      Arguments:\n        subnetId: ${subnet.subnetId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "subnetId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFirstFreeAddress.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ipAddress",
+                    "subnetId",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getFirstFreeSubnet:getFirstFreeSubnet": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirstFreeSubnet.\n",
+                "properties": {
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The ID of the subnet to look up the subnet in.\n"
+                    },
+                    "subnetMask": {
+                        "type": "integer",
+                        "description": "Mask that will be used to look next available subnet\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "subnetId",
+                    "subnetMask"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFirstFreeSubnet.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "The next available IP address.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer"
+                    },
+                    "subnetMask": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ipAddress",
+                    "subnetId",
+                    "subnetMask",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getL2domain:getL2domain": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getL2domain.\n",
+                "properties": {
+                    "domainId": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getL2domain.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "domainId": {
+                        "type": "integer"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "sections": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "domainId",
+                    "name",
+                    "sections",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getSection:getSection": {
+            "description": "## # phpipam.Section\n\nThe `phpipam.Section` data source allows one to look up a specific section,\neither by database ID or name. This data can then be used to manage other parts\nof PHPIPAM, such as in the event that the section name is known but not its ID,\nwhich is required for managing subnets.\n\n**Example:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst section = phpipam.getSection({\n    name: \"Customers\",\n});\nconst subnet = new phpipam.Subnet(\"subnet\", {\n    sectionId: section.then(section =\u003e section.sectionId),\n    subnetAddress: \"10.10.3.0\",\n    subnetMask: 24,\n});\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsection = phpipam.get_section(name=\"Customers\")\nsubnet = phpipam.Subnet(\"subnet\",\n    section_id=section.section_id,\n    subnet_address=\"10.10.3.0\",\n    subnet_mask=24)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var section = Phpipam.GetSection.Invoke(new()\n    {\n        Name = \"Customers\",\n    });\n\n    var subnet = new Phpipam.Subnet(\"subnet\", new()\n    {\n        SectionId = section.Apply(getSectionResult =\u003e getSectionResult.SectionId),\n        SubnetAddress = \"10.10.3.0\",\n        SubnetMask = 24,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsection, err := phpipam.LookupSection(ctx, \u0026phpipam.LookupSectionArgs{\n\t\t\tName: pulumi.StringRef(\"Customers\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = phpipam.NewSubnet(ctx, \"subnet\", \u0026phpipam.SubnetArgs{\n\t\t\tSectionId:     pulumi.Int(section.SectionId),\n\t\t\tSubnetAddress: pulumi.String(\"10.10.3.0\"),\n\t\t\tSubnetMask:    pulumi.Int(24),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSectionArgs;\nimport com.pulumi.phpipam.Subnet;\nimport com.pulumi.phpipam.SubnetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var section = PhpipamFunctions.getSection(GetSectionArgs.builder()\n            .name(\"Customers\")\n            .build());\n\n        var subnet = new Subnet(\"subnet\", SubnetArgs.builder()        \n            .sectionId(section.applyValue(getSectionResult -\u003e getSectionResult.sectionId()))\n            .subnetAddress(\"10.10.3.0\")\n            .subnetMask(24)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  subnet:\n    type: phpipam:Subnet\n    properties:\n      sectionId: ${section.sectionId}\n      subnetAddress: 10.10.3.0\n      subnetMask: 24\nvariables:\n  section:\n    fn::invoke:\n      Function: phpipam:getSection\n      Arguments:\n        name: Customers\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSection.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the section to look up.\n\nOne of `section_id` or `name` must be supplied. If both are supplied,\n`section_id` is used.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section to look up.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSection.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The section's description.\n"
+                    },
+                    "displayOrder": {
+                        "type": "integer",
+                        "description": "The section's display order number.\n"
+                    },
+                    "dnsResolverId": {
+                        "type": "integer",
+                        "description": "The ID of the DNS resolver to use in the section.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last edited.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "masterSectionId": {
+                        "type": "integer",
+                        "description": "The ID of the parent section in the PHPIPAM database.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the section.\n"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "A JSON representation of permissions for this section.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section in the PHPIPAM database.\n"
+                    },
+                    "showSupernetOnly": {
+                        "type": "boolean",
+                        "description": "`true` if supernets are only being shown in the subnet\nlisting.\n"
+                    },
+                    "showVlanInSubnetListing": {
+                        "type": "boolean",
+                        "description": "`true` if VLANs are being shown in the subnet\nlisting for this section.\n"
+                    },
+                    "showVrfInSubnetListing": {
+                        "type": "boolean",
+                        "description": "`true` if VRFs are being shown in the subnet\nlisting for this section.\n"
+                    },
+                    "strictMode": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is set up to check that IP addresses\nare valid for the subnets they are in.\n"
+                    },
+                    "subnetOrdering": {
+                        "type": "string",
+                        "description": "How subnets in this section are ordered.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayOrder",
+                    "dnsResolverId",
+                    "editDate",
+                    "masterSectionId",
+                    "name",
+                    "permissions",
+                    "sectionId",
+                    "showSupernetOnly",
+                    "showVlanInSubnetListing",
+                    "showVrfInSubnetListing",
+                    "strictMode",
+                    "subnetOrdering",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getSubnet:getSubnet": {
+            "description": "## # phpipam.Subnet\n\nThe `phpipam.Subnet` data source gets information on a subnet such as its ID\n(required for creating addresses), description, and more.\n\n**Example:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst subnet = phpipam.getSubnet({\n    subnetAddress: \"10.10.2.0\",\n    subnetMask: 24,\n});\n// Reserve the address.\nconst newip = new phpipam.Address(\"newip\", {\n    subnetId: subnet.then(subnet =\u003e subnet.subnetId),\n    ipAddress: \"10.10.2.10\",\n    hostname: \"tf-test-host.example.internal\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsubnet = phpipam.get_subnet(subnet_address=\"10.10.2.0\",\n    subnet_mask=24)\n# Reserve the address.\nnewip = phpipam.Address(\"newip\",\n    subnet_id=subnet.subnet_id,\n    ip_address=\"10.10.2.10\",\n    hostname=\"tf-test-host.example.internal\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var subnet = Phpipam.GetSubnet.Invoke(new()\n    {\n        SubnetAddress = \"10.10.2.0\",\n        SubnetMask = 24,\n    });\n\n    // Reserve the address.\n    var newip = new Phpipam.Address(\"newip\", new()\n    {\n        SubnetId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.SubnetId),\n        IpAddress = \"10.10.2.10\",\n        Hostname = \"tf-test-host.example.internal\",\n        Description = \"Managed by Terraform\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsubnet, err := phpipam.LookupSubnet(ctx, \u0026phpipam.LookupSubnetArgs{\n\t\t\tSubnetAddress: pulumi.StringRef(\"10.10.2.0\"),\n\t\t\tSubnetMask:    pulumi.IntRef(24),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Reserve the address.\n\t\t_, err = phpipam.NewAddress(ctx, \"newip\", \u0026phpipam.AddressArgs{\n\t\t\tSubnetId:    pulumi.Int(subnet.SubnetId),\n\t\t\tIpAddress:   pulumi.String(\"10.10.2.10\"),\n\t\t\tHostname:    pulumi.String(\"tf-test-host.example.internal\"),\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSubnetArgs;\nimport com.pulumi.phpipam.Address;\nimport com.pulumi.phpipam.AddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var subnet = PhpipamFunctions.getSubnet(GetSubnetArgs.builder()\n            .subnetAddress(\"10.10.2.0\")\n            .subnetMask(24)\n            .build());\n\n        // Reserve the address.\n        var newip = new Address(\"newip\", AddressArgs.builder()        \n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .ipAddress(\"10.10.2.10\")\n            .hostname(\"tf-test-host.example.internal\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Reserve the address.\n  newip:\n    type: phpipam:Address\n    properties:\n      subnetId: ${subnet.subnetId}\n      ipAddress: 10.10.2.10\n      hostname: tf-test-host.example.internal\n      description: Managed by Terraform\nvariables:\n  subnet:\n    fn::invoke:\n      Function: phpipam:getSubnet\n      Arguments:\n        subnetAddress: 10.10.2.0\n        subnetMask: 24\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example with `description_match`:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst subnet = phpipam.getSubnet({\n    sectionId: 1,\n    descriptionMatch: \"[Cc]ustomer 2\",\n});\nconst nextAddress = subnet.then(subnet =\u003e phpipam.getFirstFreeAddress({\n    subnetId: subnet.subnetId,\n}));\n// Reserve the address. Note that we use ignore_changes here to ensure that we\n// don't end up re-allocating this address on future Terraform runs.\nconst newip = new phpipam.Address(\"newip\", {\n    subnetId: subnet.then(subnet =\u003e subnet.subnetId),\n    ipAddress: nextAddress.then(nextAddress =\u003e nextAddress.ipAddress),\n    hostname: \"tf-test-host.example.internal\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsubnet = phpipam.get_subnet(section_id=1,\n    description_match=\"[Cc]ustomer 2\")\nnext_address = phpipam.get_first_free_address(subnet_id=subnet.subnet_id)\n# Reserve the address. Note that we use ignore_changes here to ensure that we\n# don't end up re-allocating this address on future Terraform runs.\nnewip = phpipam.Address(\"newip\",\n    subnet_id=subnet.subnet_id,\n    ip_address=next_address.ip_address,\n    hostname=\"tf-test-host.example.internal\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var subnet = Phpipam.GetSubnet.Invoke(new()\n    {\n        SectionId = 1,\n        DescriptionMatch = \"[Cc]ustomer 2\",\n    });\n\n    var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()\n    {\n        SubnetId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.SubnetId),\n    });\n\n    // Reserve the address. Note that we use ignore_changes here to ensure that we\n    // don't end up re-allocating this address on future Terraform runs.\n    var newip = new Phpipam.Address(\"newip\", new()\n    {\n        SubnetId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.SubnetId),\n        IpAddress = nextAddress.Apply(getFirstFreeAddressResult =\u003e getFirstFreeAddressResult.IpAddress),\n        Hostname = \"tf-test-host.example.internal\",\n        Description = \"Managed by Terraform\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsubnet, err := phpipam.LookupSubnet(ctx, \u0026phpipam.LookupSubnetArgs{\n\t\t\tSectionId:        pulumi.IntRef(1),\n\t\t\tDescriptionMatch: pulumi.StringRef(\"[Cc]ustomer 2\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnextAddress, err := phpipam.LookupFirstFreeAddress(ctx, \u0026phpipam.LookupFirstFreeAddressArgs{\n\t\t\tSubnetId: subnet.SubnetId,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Reserve the address. Note that we use ignore_changes here to ensure that we\n\t\t// don't end up re-allocating this address on future Terraform runs.\n\t\t_, err = phpipam.NewAddress(ctx, \"newip\", \u0026phpipam.AddressArgs{\n\t\t\tSubnetId:    pulumi.Int(subnet.SubnetId),\n\t\t\tIpAddress:   pulumi.String(nextAddress.IpAddress),\n\t\t\tHostname:    pulumi.String(\"tf-test-host.example.internal\"),\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSubnetArgs;\nimport com.pulumi.phpipam.inputs.GetFirstFreeAddressArgs;\nimport com.pulumi.phpipam.Address;\nimport com.pulumi.phpipam.AddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var subnet = PhpipamFunctions.getSubnet(GetSubnetArgs.builder()\n            .sectionId(1)\n            .descriptionMatch(\"[Cc]ustomer 2\")\n            .build());\n\n        final var nextAddress = PhpipamFunctions.getFirstFreeAddress(GetFirstFreeAddressArgs.builder()\n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .build());\n\n        // Reserve the address. Note that we use ignore_changes here to ensure that we\n        // don't end up re-allocating this address on future Terraform runs.\n        var newip = new Address(\"newip\", AddressArgs.builder()        \n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .ipAddress(nextAddress.applyValue(getFirstFreeAddressResult -\u003e getFirstFreeAddressResult.ipAddress()))\n            .hostname(\"tf-test-host.example.internal\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Reserve the address. Note that we use ignore_changes here to ensure that we\n  # // don't end up re-allocating this address on future Terraform runs.\n  newip:\n    type: phpipam:Address\n    properties:\n      subnetId: ${subnet.subnetId}\n      ipAddress: ${nextAddress.ipAddress}\n      hostname: tf-test-host.example.internal\n      description: Managed by Terraform\nvariables:\n  subnet:\n    fn::invoke:\n      Function: phpipam:getSubnet\n      Arguments:\n        sectionId: 1\n        descriptionMatch: '[Cc]ustomer 2'\n  nextAddress:\n    fn::invoke:\n      Function: phpipam:getFirstFreeAddress\n      Arguments:\n        subnetId: ${subnet.subnetId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example With `custom_field_filter`:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst subnet = phpipam.getSubnet({\n    sectionId: 1,\n    customFieldFilter: {\n        custom_CustomTestSubnets: \".*terraform.*\",\n    },\n});\nconst nextAddress = subnet.then(subnet =\u003e phpipam.getFirstFreeAddress({\n    subnetId: subnet.subnetId,\n}));\n// Reserve the address. Note that we use ignore_changes here to ensure that we\n// don't end up re-allocating this address on future Terraform runs.\nconst newip = new phpipam.Address(\"newip\", {\n    subnetId: subnet.then(subnet =\u003e subnet.subnetId),\n    ipAddress: nextAddress.then(nextAddress =\u003e nextAddress.ipAddress),\n    hostname: \"tf-test-host.example.internal\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsubnet = phpipam.get_subnet(section_id=1,\n    custom_field_filter={\n        \"custom_CustomTestSubnets\": \".*terraform.*\",\n    })\nnext_address = phpipam.get_first_free_address(subnet_id=subnet.subnet_id)\n# Reserve the address. Note that we use ignore_changes here to ensure that we\n# don't end up re-allocating this address on future Terraform runs.\nnewip = phpipam.Address(\"newip\",\n    subnet_id=subnet.subnet_id,\n    ip_address=next_address.ip_address,\n    hostname=\"tf-test-host.example.internal\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var subnet = Phpipam.GetSubnet.Invoke(new()\n    {\n        SectionId = 1,\n        CustomFieldFilter = \n        {\n            { \"custom_CustomTestSubnets\", \".*terraform.*\" },\n        },\n    });\n\n    var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()\n    {\n        SubnetId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.SubnetId),\n    });\n\n    // Reserve the address. Note that we use ignore_changes here to ensure that we\n    // don't end up re-allocating this address on future Terraform runs.\n    var newip = new Phpipam.Address(\"newip\", new()\n    {\n        SubnetId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.SubnetId),\n        IpAddress = nextAddress.Apply(getFirstFreeAddressResult =\u003e getFirstFreeAddressResult.IpAddress),\n        Hostname = \"tf-test-host.example.internal\",\n        Description = \"Managed by Terraform\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsubnet, err := phpipam.LookupSubnet(ctx, \u0026phpipam.LookupSubnetArgs{\n\t\t\tSectionId: pulumi.IntRef(1),\n\t\t\tCustomFieldFilter: map[string]interface{}{\n\t\t\t\t\"custom_CustomTestSubnets\": \".*terraform.*\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnextAddress, err := phpipam.LookupFirstFreeAddress(ctx, \u0026phpipam.LookupFirstFreeAddressArgs{\n\t\t\tSubnetId: subnet.SubnetId,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Reserve the address. Note that we use ignore_changes here to ensure that we\n\t\t// don't end up re-allocating this address on future Terraform runs.\n\t\t_, err = phpipam.NewAddress(ctx, \"newip\", \u0026phpipam.AddressArgs{\n\t\t\tSubnetId:    pulumi.Int(subnet.SubnetId),\n\t\t\tIpAddress:   pulumi.String(nextAddress.IpAddress),\n\t\t\tHostname:    pulumi.String(\"tf-test-host.example.internal\"),\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSubnetArgs;\nimport com.pulumi.phpipam.inputs.GetFirstFreeAddressArgs;\nimport com.pulumi.phpipam.Address;\nimport com.pulumi.phpipam.AddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var subnet = PhpipamFunctions.getSubnet(GetSubnetArgs.builder()\n            .sectionId(1)\n            .customFieldFilter(Map.of(\"custom_CustomTestSubnets\", \".*terraform.*\"))\n            .build());\n\n        final var nextAddress = PhpipamFunctions.getFirstFreeAddress(GetFirstFreeAddressArgs.builder()\n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .build());\n\n        // Reserve the address. Note that we use ignore_changes here to ensure that we\n        // don't end up re-allocating this address on future Terraform runs.\n        var newip = new Address(\"newip\", AddressArgs.builder()        \n            .subnetId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.subnetId()))\n            .ipAddress(nextAddress.applyValue(getFirstFreeAddressResult -\u003e getFirstFreeAddressResult.ipAddress()))\n            .hostname(\"tf-test-host.example.internal\")\n            .description(\"Managed by Terraform\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Reserve the address. Note that we use ignore_changes here to ensure that we\n  # // don't end up re-allocating this address on future Terraform runs.\n  newip:\n    type: phpipam:Address\n    properties:\n      subnetId: ${subnet.subnetId}\n      ipAddress: ${nextAddress.ipAddress}\n      hostname: tf-test-host.example.internal\n      description: Managed by Terraform\nvariables:\n  subnet:\n    fn::invoke:\n      Function: phpipam:getSubnet\n      Arguments:\n        sectionId: 1\n        customFieldFilter:\n          custom_CustomTestSubnets: .*terraform.*\n  nextAddress:\n    fn::invoke:\n      Function: phpipam:getFirstFreeAddress\n      Arguments:\n        subnetId: ${subnet.subnetId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Example how to get gateway IP address by subnet_id:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst section = phpipam.getSection({\n    name: \"Subnet Section\",\n});\nconst subnet = section.then(section =\u003e phpipam.getSubnet({\n    sectionId: section.id,\n    descriptionMatch: \"prod_mgmt\",\n}));\nconst gateway = subnet.then(subnet =\u003e phpipam.getAddress({\n    addressId: subnet.gatewayId,\n}));\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsection = phpipam.get_section(name=\"Subnet Section\")\nsubnet = phpipam.get_subnet(section_id=section.id,\n    description_match=\"prod_mgmt\")\ngateway = phpipam.get_address(address_id=subnet.gateway_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var section = Phpipam.GetSection.Invoke(new()\n    {\n        Name = \"Subnet Section\",\n    });\n\n    var subnet = Phpipam.GetSubnet.Invoke(new()\n    {\n        SectionId = section.Apply(getSectionResult =\u003e getSectionResult.Id),\n        DescriptionMatch = \"prod_mgmt\",\n    });\n\n    var gateway = Phpipam.GetAddress.Invoke(new()\n    {\n        AddressId = subnet.Apply(getSubnetResult =\u003e getSubnetResult.GatewayId),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsection, err := phpipam.LookupSection(ctx, \u0026phpipam.LookupSectionArgs{\n\t\t\tName: pulumi.StringRef(\"Subnet Section\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsubnet, err := phpipam.LookupSubnet(ctx, \u0026phpipam.LookupSubnetArgs{\n\t\t\tSectionId:        pulumi.IntRef(section.Id),\n\t\t\tDescriptionMatch: pulumi.StringRef(\"prod_mgmt\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = phpipam.LookupAddress(ctx, \u0026phpipam.LookupAddressArgs{\n\t\t\tAddressId: pulumi.IntRef(subnet.GatewayId),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSectionArgs;\nimport com.pulumi.phpipam.inputs.GetSubnetArgs;\nimport com.pulumi.phpipam.inputs.GetAddressArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var section = PhpipamFunctions.getSection(GetSectionArgs.builder()\n            .name(\"Subnet Section\")\n            .build());\n\n        final var subnet = PhpipamFunctions.getSubnet(GetSubnetArgs.builder()\n            .sectionId(section.applyValue(getSectionResult -\u003e getSectionResult.id()))\n            .descriptionMatch(\"prod_mgmt\")\n            .build());\n\n        final var gateway = PhpipamFunctions.getAddress(GetAddressArgs.builder()\n            .addressId(subnet.applyValue(getSubnetResult -\u003e getSubnetResult.gatewayId()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  section:\n    fn::invoke:\n      Function: phpipam:getSection\n      Arguments:\n        name: Subnet Section\n  subnet:\n    fn::invoke:\n      Function: phpipam:getSubnet\n      Arguments:\n        sectionId: ${section.id}\n        descriptionMatch: prod_mgmt\n  gateway:\n    fn::invoke:\n      Function: phpipam:getAddress\n      Arguments:\n        addressId: ${subnet.gatewayId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSubnet.\n",
+                "properties": {
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of custom fields to search for. The filter\nvalues are regular expressions that follow the RE2 syntax for which you can\nfind documentation [here](https://github.com/google/re2/wiki/Syntax). All\nfields need to match for the match to succeed.\n\n⚠️  **NOTE:** Searches with the `description`, `description_match` and\n`custom_field_filter` fields return the first match found without any warnings.\nConversely, the resource fails if it somehow finds multiple results on a CIDR\n(subnet and mask) search - this is to assert that you are getting the subnet you\nrequested. If you want to return multiple results, combine this data source with\nthe `phpipam.getSubnets` data source. Custom fileds must contain\nmandatory prefix `custom_`.\n\n⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the\nequivalent to a regular expression that matches everything, and hence will\nreturn the first subnetit sees in the section.\n\nArguments are processed in the following order of precedence:\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The subnet's description. `section_id` is required if you\nwant to use this option.\n"
+                    },
+                    "descriptionMatch": {
+                        "type": "string",
+                        "description": "A regular expression to match against when searching\nfor a subnet. `section_id` is required if you want to use this option.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": ", and either one of `description`, `description_match`, or\n`custom_field_filter`\n"
+                    },
+                    "subnetAddress": {
+                        "type": "string",
+                        "description": "and `subnet_mask`\n"
+                    },
+                    "subnetId": {
+                        "type": "integer"
+                    },
+                    "subnetMask": {
+                        "type": "integer",
+                        "description": "The subnet mask, in bits, of the subnet to look up.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSubnet.\n",
+                "properties": {
+                    "allowIpRequests": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet allows IP requests in PHPIPAM.\n"
+                    },
+                    "createPtrRecords": {
+                        "type": "boolean",
+                        "description": "`true` if PTR records are created for addresses in\nthis subnet.\n"
+                    },
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this subnet.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description set for the subnet.\n"
+                    },
+                    "descriptionMatch": {
+                        "type": "string"
+                    },
+                    "displayHostnames": {
+                        "type": "boolean",
+                        "description": "`true` if hostnames are displayed instead of IP\naddresses in the address listing for this subnet.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last updated.\n"
+                    },
+                    "gateway": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Key map of values: ip_addr, id. ip_addr - this is gateway IP address\n(like 192.168.1.254). id - gateway ip ID\n"
+                    },
+                    "gatewayId": {
+                        "type": "string",
+                        "description": "The ID of gateway IP address fot this subnet\n"
+                    },
+                    "hostDiscoveryEnabled": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is included in new host\nscans.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includeInPing": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is included in ping probes.\n"
+                    },
+                    "isFolder": {
+                        "type": "boolean",
+                        "description": "`true` if this subnet is a folder and not an actual subnet.\n"
+                    },
+                    "isFull": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet has been marked as full.\n"
+                    },
+                    "linkedSubnetId": {
+                        "type": "integer",
+                        "description": "The ID of the linked subnet in the PHPIPAM database.\n"
+                    },
+                    "locationId": {
+                        "type": "integer",
+                        "description": "The ID of the location for this subnet.\n"
+                    },
+                    "masterSubnetId": {
+                        "type": "integer",
+                        "description": "The ID of the parent subnet for this subnet in the\nPHPIPAM database.\n"
+                    },
+                    "nameserverId": {
+                        "type": "integer",
+                        "description": "The ID of the nameserver used to assign PTR records for\nthis subnet.\n"
+                    },
+                    "nameservers": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "parentSubnetId": {
+                        "type": "integer"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "A JSON representation of the permissions associated with this\nsubnet.\n"
+                    },
+                    "resolveDns": {
+                        "type": "boolean",
+                        "description": "`true` if enabled resolving of DNS names.\n"
+                    },
+                    "scanAgentId": {
+                        "type": "integer",
+                        "description": "The ID of the ping scan agent that is used for this subnet.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section for this address in the PHPIPAM\ndatabase.\n"
+                    },
+                    "showName": {
+                        "type": "boolean",
+                        "description": "`true` if the subnet name is are shown in the section, instead\nof the network address.\n"
+                    },
+                    "subnetAddress": {
+                        "type": "string",
+                        "description": "The network address of the subnet.\n"
+                    },
+                    "subnetId": {
+                        "type": "integer",
+                        "description": "The ID of the subnet in the PHPIPAM database.\n"
+                    },
+                    "subnetMask": {
+                        "type": "integer",
+                        "description": "The subnet mask, in bits.\n"
+                    },
+                    "utilizationThreshold": {
+                        "type": "integer",
+                        "description": "The subnet's utilization threshold.\n"
+                    },
+                    "vlanId": {
+                        "type": "integer",
+                        "description": "The ID of the VLAN for this subnet in the PHPIPAM database.\n"
+                    },
+                    "vrfId": {
+                        "type": "integer",
+                        "description": "The ID of the VRF for this subnet in the PHPIPAM database.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "allowIpRequests",
+                    "createPtrRecords",
+                    "customFields",
+                    "description",
+                    "displayHostnames",
+                    "editDate",
+                    "gateway",
+                    "gatewayId",
+                    "hostDiscoveryEnabled",
+                    "includeInPing",
+                    "isFolder",
+                    "isFull",
+                    "linkedSubnetId",
+                    "locationId",
+                    "masterSubnetId",
+                    "nameserverId",
+                    "nameservers",
+                    "parentSubnetId",
+                    "permissions",
+                    "resolveDns",
+                    "scanAgentId",
+                    "sectionId",
+                    "showName",
+                    "subnetAddress",
+                    "subnetId",
+                    "subnetMask",
+                    "utilizationThreshold",
+                    "vlanId",
+                    "vrfId",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getSubnets:getSubnets": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSubnets.\n",
+                "properties": {
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A map of custom fields to search for. The filter\nvalues are regular expressions. All fields need to match for the match to\nsucceed.\n\nYou can find documentation for the regular expression syntax used with the\n`description_match` and `custom_field_filter` attributes\n[here](https://github.com/google/re2/wiki/Syntax).\n\n⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the\nequivalent to a regular expression that matches everything, and hence will\nreturn **all** subnets that contain the referenced custom field key!\nCustom fileds must contain mandatory prefix `custom_`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The subnet's description.\n"
+                    },
+                    "descriptionMatch": {
+                        "type": "string",
+                        "description": "A regular expression to match against when searching\nfor a subnet.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer",
+                        "description": "The ID of the section of the subnet.\n\nOne of the following below parameters is required:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "sectionId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSubnets.\n",
+                "properties": {
+                    "customFieldFilter": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "descriptionMatch": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "sectionId": {
+                        "type": "integer"
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of subnet IDs that match the given criteria.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "sectionId",
+                    "subnetIds",
+                    "id"
+                ]
+            }
+        },
+        "phpipam:index/getVlan:getVlan": {
+            "description": "## # phpipam.Vlan\n\nThe `phpipam.Vlan` data source allows one to look up a VLAN in the PHPIPAM\ndatabase. This can then be used to assign a VLAN to a subnet in the\n`phpipam.Subnet` resource. It can also be used\nto gather other information on the VLAN.\n\n**Example:**\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as phpipam from \"@pulumi/phpipam\";\n\nconst section = phpipam.getSection({\n    name: \"Customers\",\n});\nconst vlan = phpipam.getVlan({\n    number: 1000,\n});\nconst subnet = new phpipam.Subnet(\"subnet\", {\n    sectionId: section.then(section =\u003e section.sectionId),\n    subnetAddress: \"10.10.3.0\",\n    subnetMask: 24,\n    vlanId: vlan.then(vlan =\u003e vlan.vlanId),\n});\n```\n```python\nimport pulumi\nimport pulumi_phpipam as phpipam\n\nsection = phpipam.get_section(name=\"Customers\")\nvlan = phpipam.get_vlan(number=1000)\nsubnet = phpipam.Subnet(\"subnet\",\n    section_id=section.section_id,\n    subnet_address=\"10.10.3.0\",\n    subnet_mask=24,\n    vlan_id=vlan.vlan_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Phpipam = Pulumi.Phpipam;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var section = Phpipam.GetSection.Invoke(new()\n    {\n        Name = \"Customers\",\n    });\n\n    var vlan = Phpipam.GetVlan.Invoke(new()\n    {\n        Number = 1000,\n    });\n\n    var subnet = new Phpipam.Subnet(\"subnet\", new()\n    {\n        SectionId = section.Apply(getSectionResult =\u003e getSectionResult.SectionId),\n        SubnetAddress = \"10.10.3.0\",\n        SubnetMask = 24,\n        VlanId = vlan.Apply(getVlanResult =\u003e getVlanResult.VlanId),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/DBACHRY13/pulumi-phpipam/sdk/go/phpipam\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsection, err := phpipam.LookupSection(ctx, \u0026phpipam.LookupSectionArgs{\n\t\t\tName: pulumi.StringRef(\"Customers\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvlan, err := phpipam.LookupVlan(ctx, \u0026phpipam.LookupVlanArgs{\n\t\t\tNumber: pulumi.IntRef(1000),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = phpipam.NewSubnet(ctx, \"subnet\", \u0026phpipam.SubnetArgs{\n\t\t\tSectionId:     pulumi.Int(section.SectionId),\n\t\t\tSubnetAddress: pulumi.String(\"10.10.3.0\"),\n\t\t\tSubnetMask:    pulumi.Int(24),\n\t\t\tVlanId:        pulumi.Int(vlan.VlanId),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.phpipam.PhpipamFunctions;\nimport com.pulumi.phpipam.inputs.GetSectionArgs;\nimport com.pulumi.phpipam.inputs.GetVlanArgs;\nimport com.pulumi.phpipam.Subnet;\nimport com.pulumi.phpipam.SubnetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var section = PhpipamFunctions.getSection(GetSectionArgs.builder()\n            .name(\"Customers\")\n            .build());\n\n        final var vlan = PhpipamFunctions.getVlan(GetVlanArgs.builder()\n            .number(1000)\n            .build());\n\n        var subnet = new Subnet(\"subnet\", SubnetArgs.builder()        \n            .sectionId(section.applyValue(getSectionResult -\u003e getSectionResult.sectionId()))\n            .subnetAddress(\"10.10.3.0\")\n            .subnetMask(24)\n            .vlanId(vlan.applyValue(getVlanResult -\u003e getVlanResult.vlanId()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  subnet:\n    type: phpipam:Subnet\n    properties:\n      sectionId: ${section.sectionId}\n      subnetAddress: 10.10.3.0\n      subnetMask: 24\n      vlanId: ${vlan.vlanId}\nvariables:\n  section:\n    fn::invoke:\n      Function: phpipam:getSection\n      Arguments:\n        name: Customers\n  vlan:\n    fn::invoke:\n      Function: phpipam:getVlan\n      Arguments:\n        number: 1000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getVlan.\n",
+                "properties": {
+                    "l2DomainId": {
+                        "type": "integer",
+                        "description": "The layer 2 domain ID in the PHPIPAM database.\n"
+                    },
+                    "number": {
+                        "type": "integer",
+                        "description": "The number of the VLAN to look up.\n\nOne of `vlan_id` or `number` must be supplied. If both are supplied,\n`vlan_id` is used.\n"
+                    },
+                    "vlanId": {
+                        "type": "integer",
+                        "description": "The ID of the VLAN to look up. **NOTE:** this is the database ID,\nnot the VLAN number - if you need this, use the `number` parameter.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVlan.\n",
+                "properties": {
+                    "customFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A key/value map of custom fields for this VLAN.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description supplied to the VLAN.\n"
+                    },
+                    "editDate": {
+                        "type": "string",
+                        "description": "The date this resource was last updated.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "l2DomainId": {
+                        "type": "integer",
+                        "description": "The layer 2 domain ID in the PHPIPAM database.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name/label of the VLAN.\n"
+                    },
+                    "number": {
+                        "type": "integer",
+                        "description": "The number of the VLAN (the actual VLAN ID on your switch).\n"
+                    },
+                    "vlanId": {
+                        "type": "integer",
+                        "description": "The ID of the VLAN to look up. **NOTE:** this is the database ID,\nnot the VLAN number - if you need this, use the `number` parameter.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "customFields",
+                    "description",
+                    "editDate",
+                    "l2DomainId",
+                    "name",
+                    "number",
+                    "vlanId",
+                    "id"
+                ]
+            }
+        }
+    }
+}

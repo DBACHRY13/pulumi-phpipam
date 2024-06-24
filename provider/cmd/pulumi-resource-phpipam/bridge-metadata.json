@@ -1,0 +1,67 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "phpipam_address": {
+                "current": "phpipam:index/address:Address"
+            },
+            "phpipam_first_free_address": {
+                "current": "phpipam:index/firstFreeAddress:FirstFreeAddress"
+            },
+            "phpipam_first_free_subnet": {
+                "current": "phpipam:index/firstFreeSubnet:FirstFreeSubnet"
+            },
+            "phpipam_l2domain": {
+                "current": "phpipam:index/l2domain:L2domain"
+            },
+            "phpipam_section": {
+                "current": "phpipam:index/section:Section"
+            },
+            "phpipam_subnet": {
+                "current": "phpipam:index/subnet:Subnet"
+            },
+            "phpipam_vlan": {
+                "current": "phpipam:index/vlan:Vlan"
+            }
+        },
+        "datasources": {
+            "phpipam_address": {
+                "current": "phpipam:index/getAddress:getAddress"
+            },
+            "phpipam_addresses": {
+                "current": "phpipam:index/getAddresses:getAddresses",
+                "fields": {
+                    "address_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "phpipam_first_free_address": {
+                "current": "phpipam:index/getFirstFreeAddress:getFirstFreeAddress"
+            },
+            "phpipam_first_free_subnet": {
+                "current": "phpipam:index/getFirstFreeSubnet:getFirstFreeSubnet"
+            },
+            "phpipam_l2domain": {
+                "current": "phpipam:index/getL2domain:getL2domain"
+            },
+            "phpipam_section": {
+                "current": "phpipam:index/getSection:getSection"
+            },
+            "phpipam_subnet": {
+                "current": "phpipam:index/getSubnet:getSubnet"
+            },
+            "phpipam_subnets": {
+                "current": "phpipam:index/getSubnets:getSubnets",
+                "fields": {
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "phpipam_vlan": {
+                "current": "phpipam:index/getVlan:getVlan"
+            }
+        }
+    },
+    "auto-settings": {}
+}

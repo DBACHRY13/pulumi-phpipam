@@ -1,9 +1,9 @@
-PROJECT_NAME := xyz Package
+PROJECT_NAME := phpipam Package
 
 SHELL            := /bin/bash
-PACK             := xyz
-PROJECT          := github.com/pulumi/pulumi-xyz
-NODE_MODULE_NAME := @abc/${PACK}
+PACK             := phpipam
+PROJECT          := github.com/DBACHRY13/pulumi-phpipam
+NODE_MODULE_NAME := @DHW/${PACK}
 TF_NAME          := ${PACK}
 PROVIDER_PATH    := provider
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
