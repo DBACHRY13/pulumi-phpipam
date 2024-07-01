@@ -2,33 +2,42 @@
     "auto-aliasing": {
         "resources": {
             "phpipam_address": {
-                "current": "phpipam:index/address:Address"
+                "current": "phpipam:index/address:Address",
+                "majorVersion": 1
             },
             "phpipam_first_free_address": {
-                "current": "phpipam:index/firstFreeAddress:FirstFreeAddress"
+                "current": "phpipam:index/firstFreeAddress:FirstFreeAddress",
+                "majorVersion": 1
             },
             "phpipam_first_free_subnet": {
-                "current": "phpipam:index/firstFreeSubnet:FirstFreeSubnet"
+                "current": "phpipam:index/firstFreeSubnet:FirstFreeSubnet",
+                "majorVersion": 1
             },
             "phpipam_l2domain": {
-                "current": "phpipam:index/l2domain:L2domain"
+                "current": "phpipam:index/l2domain:L2domain",
+                "majorVersion": 1
             },
             "phpipam_section": {
-                "current": "phpipam:index/section:Section"
+                "current": "phpipam:index/section:Section",
+                "majorVersion": 1
             },
             "phpipam_subnet": {
-                "current": "phpipam:index/subnet:Subnet"
+                "current": "phpipam:index/subnet:Subnet",
+                "majorVersion": 1
             },
             "phpipam_vlan": {
-                "current": "phpipam:index/vlan:Vlan"
+                "current": "phpipam:index/vlan:Vlan",
+                "majorVersion": 1
             }
         },
         "datasources": {
             "phpipam_address": {
-                "current": "phpipam:index/getAddress:getAddress"
+                "current": "phpipam:index/getAddress:getAddress",
+                "majorVersion": 1
             },
             "phpipam_addresses": {
                 "current": "phpipam:index/getAddresses:getAddresses",
+                "majorVersion": 1,
                 "fields": {
                     "address_ids": {
                         "maxItemsOne": false
@@ -36,22 +45,28 @@
                 }
             },
             "phpipam_first_free_address": {
-                "current": "phpipam:index/getFirstFreeAddress:getFirstFreeAddress"
+                "current": "phpipam:index/getFirstFreeAddress:getFirstFreeAddress",
+                "majorVersion": 1
             },
             "phpipam_first_free_subnet": {
-                "current": "phpipam:index/getFirstFreeSubnet:getFirstFreeSubnet"
+                "current": "phpipam:index/getFirstFreeSubnet:getFirstFreeSubnet",
+                "majorVersion": 1
             },
             "phpipam_l2domain": {
-                "current": "phpipam:index/getL2domain:getL2domain"
+                "current": "phpipam:index/getL2domain:getL2domain",
+                "majorVersion": 1
             },
             "phpipam_section": {
-                "current": "phpipam:index/getSection:getSection"
+                "current": "phpipam:index/getSection:getSection",
+                "majorVersion": 1
             },
             "phpipam_subnet": {
-                "current": "phpipam:index/getSubnet:getSubnet"
+                "current": "phpipam:index/getSubnet:getSubnet",
+                "majorVersion": 1
             },
             "phpipam_subnets": {
                 "current": "phpipam:index/getSubnets:getSubnets",
+                "majorVersion": 1,
                 "fields": {
                     "subnet_ids": {
                         "maxItemsOne": false
@@ -59,7 +74,8 @@
                 }
             },
             "phpipam_vlan": {
-                "current": "phpipam:index/getVlan:getVlan"
+                "current": "phpipam:index/getVlan:getVlan",
+                "majorVersion": 1
             }
         }
     },
