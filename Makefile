@@ -84,7 +84,8 @@ build_dotnet:: install_plugins tfgen # build the dotnet sdk
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		echo "${DOTNET_VERSION}" >version.txt && \
-        dotnet build /p:Version=${DOTNET_VERSION}
+        dotnet build /p:Version=${DOTNET_VERSION} 
+# dotnet nuget push bin/Debug/*.nupkg --source https://nexusinfprod01.dhw.state.id.us/repository/nuget-hosted/ --api-key e972fb7c-9bce-33c4-9db7-617262c66b67
 
 build_go:: install_plugins tfgen # build the go sdk
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
