@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Pulumi.Phpipam</id>
+    <version>0.0.1-alpha.1719240595+9c473e8c</version>
+    <authors>DHW</authors>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>logo.png</icon>
+    <projectUrl>https://www.pulumi.com/</projectUrl>
+    <description>A Pulumi package for creating and managing phpipam cloud resources.</description>
+    <repository type="git" url="https://github.com/DBACHRY13/pulumi-phpipam" commit="9c473e8c79689071991e4213fd6571e7b427f707" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Pulumi" version="3.64.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net6.0/Pulumi.Phpipam.pdb" target="lib/net6.0/Pulumi.Phpipam.pdb" />
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net6.0/Pulumi.Phpipam.dll" target="lib/net6.0/Pulumi.Phpipam.dll" />
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net6.0/Pulumi.Phpipam.xml" target="lib/net6.0/Pulumi.Phpipam.xml" />
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/version.txt" target="content/version.txt" />
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/pulumi-plugin.json" target="content/pulumi-plugin.json" />
+    <file src="/home/local/source/pulumi-phpipam/sdk/dotnet/logo.png" target="logo.png" />
+  </files>
+</package>

@@ -2,8 +2,6 @@
 .code
 **/vendor/
 .pulumi
-**/bin/
-**/obj/
 Pulumi.*.yaml
 **/node_modules/
 .DS_Store
