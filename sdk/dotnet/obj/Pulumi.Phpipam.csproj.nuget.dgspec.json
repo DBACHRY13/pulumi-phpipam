@@ -5,7 +5,7 @@
   },
   "projects": {
     "/home/local/source/pulumi-phpipam/sdk/dotnet/Pulumi.Phpipam.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.0-alpha.1720810303+cdf63ea4.dirty",
       "restore": {
         "projectUniqueName": "/home/local/source/pulumi-phpipam/sdk/dotnet/Pulumi.Phpipam.csproj",
         "projectName": "Pulumi.Phpipam",
@@ -17,15 +17,15 @@
           "/home/local/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net6.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
           "https://nexusinfprod01.dhw.state.id.us/repository/nuget-hosted/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -36,8 +36,8 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.SourceLink.GitHub": {
               "suppressParent": "All",
@@ -60,12 +60,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.32, 6.0.32]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.32, 6.0.32]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/RuntimeIdentifierGraph.json"
         }
       }
     }
