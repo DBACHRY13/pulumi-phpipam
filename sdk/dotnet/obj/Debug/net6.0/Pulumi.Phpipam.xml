@@ -1,0 +1,2724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pulumi.Phpipam</name>
+    </assembly>
+    <members>
+        <member name="P:Pulumi.Phpipam.Address.AddressId">
+            <summary>
+            The ID of the IP address in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.CustomFields">
+            <summary>
+            A key/value map of custom fields for this address.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.Description">
+            <summary>
+            The description provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.DeviceId">
+            <summary>
+            The ID of the associated device in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.EditDate">
+            <summary>
+            The last time this resource was modified.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.ExcludePing">
+            <summary>
+            `true` if this address is excluded from ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.Hostname">
+            <summary>
+            The hostname supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.IpAddress">
+            <summary>
+            The IP address to reserve.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.IsGateway">
+            <summary>
+            `true` if this IP address has been designated as a
+            gateway.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.LastSeen">
+            <summary>
+            The last time this IP address answered ping probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.MacAddress">
+            <summary>
+            The MAC address provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.Note">
+            <summary>
+            The note supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.Owner">
+            <summary>
+            The owner name provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.PtrRecordId">
+            <summary>
+            The ID of the associated PTR record in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.SkipPtrRecord">
+            <summary>
+            `true` if PTR records are not being created
+            for this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.StateTagId">
+            <summary>
+            The tag ID in the database for the IP address'
+            specific state. **NOTE:** This is currently represented as an integer but may
+            change to the specific string representation at a later time.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.SubnetId">
+            <summary>
+            The database ID of the subnet this IP address
+            belongs to.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Address.SwitchPortLabel">
+            <summary>
+            A string port label that is associated with
+            this address.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.Address.#ctor(System.String,Pulumi.Phpipam.AddressArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a Address resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.Address.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.AddressState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing Address resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.CustomFields">
+            <summary>
+            A key/value map of custom fields for this address.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.Description">
+            <summary>
+            The description provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.DeviceId">
+            <summary>
+            The ID of the associated device in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.ExcludePing">
+            <summary>
+            `true` if this address is excluded from ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.Hostname">
+            <summary>
+            The hostname supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.IpAddress">
+            <summary>
+            The IP address to reserve.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.IsGateway">
+            <summary>
+            `true` if this IP address has been designated as a
+            gateway.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.MacAddress">
+            <summary>
+            The MAC address provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.Note">
+            <summary>
+            The note supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.Owner">
+            <summary>
+            The owner name provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.PtrRecordId">
+            <summary>
+            The ID of the associated PTR record in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.SkipPtrRecord">
+            <summary>
+            `true` if PTR records are not being created
+            for this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.StateTagId">
+            <summary>
+            The tag ID in the database for the IP address'
+            specific state. **NOTE:** This is currently represented as an integer but may
+            change to the specific string representation at a later time.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.SubnetId">
+            <summary>
+            The database ID of the subnet this IP address
+            belongs to.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressArgs.SwitchPortLabel">
+            <summary>
+            A string port label that is associated with
+            this address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.AddressId">
+            <summary>
+            The ID of the IP address in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.CustomFields">
+            <summary>
+            A key/value map of custom fields for this address.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.Description">
+            <summary>
+            The description provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.DeviceId">
+            <summary>
+            The ID of the associated device in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.EditDate">
+            <summary>
+            The last time this resource was modified.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.ExcludePing">
+            <summary>
+            `true` if this address is excluded from ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.Hostname">
+            <summary>
+            The hostname supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.IpAddress">
+            <summary>
+            The IP address to reserve.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.IsGateway">
+            <summary>
+            `true` if this IP address has been designated as a
+            gateway.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.LastSeen">
+            <summary>
+            The last time this IP address answered ping probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.MacAddress">
+            <summary>
+            The MAC address provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.Note">
+            <summary>
+            The note supplied to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.Owner">
+            <summary>
+            The owner name provided to this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.PtrRecordId">
+            <summary>
+            The ID of the associated PTR record in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.SkipPtrRecord">
+            <summary>
+            `true` if PTR records are not being created
+            for this IP address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.StateTagId">
+            <summary>
+            The tag ID in the database for the IP address'
+            specific state. **NOTE:** This is currently represented as an integer but may
+            change to the specific string representation at a later time.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.SubnetId">
+            <summary>
+            The database ID of the subnet this IP address
+            belongs to.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.AddressState.SwitchPortLabel">
+            <summary>
+            A string port label that is associated with
+            this address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.AppId">
+            <summary>
+            The application ID required for API requests
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.Endpoint">
+            <summary>
+            The full URL (plus path) to the API endpoint
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.Insecure">
+            <summary>
+            Whether server should be accessed without verifying the TLS certificate.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.NestCustomFields">
+            <summary>
+            Whether the API client is configured to nest custom values.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.Password">
+            <summary>
+            The password of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Config.Username">
+            <summary>
+            The username of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.FirstFreeAddress.#ctor(System.String,Pulumi.Phpipam.FirstFreeAddressArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a FirstFreeAddress resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.FirstFreeAddress.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.FirstFreeAddressState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing FirstFreeAddress resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.FirstFreeSubnet.#ctor(System.String,Pulumi.Phpipam.FirstFreeSubnetArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a FirstFreeSubnet resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.FirstFreeSubnet.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.FirstFreeSubnetState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing FirstFreeSubnet resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetAddress.InvokeAsync(Pulumi.Phpipam.GetAddressArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Address
+            
+            The `phpipam.Address` data source allows one to get information about a specific
+            IP address within PHPIPAM. Use this address to get general information about a
+            specific IP address such as its host name, description and more.
+            
+            Lookups for IP addresses can only happen at this time via its entry in the
+            database, or the IP address itself. Future versions of this resource, when such
+            features become generally available in the PHPIPAM API, will allow lookup based
+            on host name, allowing for better ability for this resource to discover IP
+            addresses that have been pre-assigned for a specific resource.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    IpAddress = "10.10.1.1",
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `subnet_id` when multiple subnets share the same ip ranges :**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    IpAddress = "10.10.1.1",
+                    SubnetId = 3,
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `description`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    SubnetId = 3,
+                    Description = "Customer 1",
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `custom_field_filter`:**
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetAddress.Invoke(Pulumi.Phpipam.GetAddressInvokeArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Address
+            
+            The `phpipam.Address` data source allows one to get information about a specific
+            IP address within PHPIPAM. Use this address to get general information about a
+            specific IP address such as its host name, description and more.
+            
+            Lookups for IP addresses can only happen at this time via its entry in the
+            database, or the IP address itself. Future versions of this resource, when such
+            features become generally available in the PHPIPAM API, will allow lookup based
+            on host name, allowing for better ability for this resource to discover IP
+            addresses that have been pre-assigned for a specific resource.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    IpAddress = "10.10.1.1",
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `subnet_id` when multiple subnets share the same ip ranges :**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    IpAddress = "10.10.1.1",
+                    SubnetId = 3,
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `description`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var address = Phpipam.GetAddress.Invoke(new()
+                {
+                    SubnetId = 3,
+                    Description = "Customer 1",
+                });
+            
+                return new Dictionary&lt;string, object?&gt;
+                {
+                    ["addressDescription"] = address.Apply(getAddressResult =&gt; getAddressResult.Description),
+                };
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `custom_field_filter`:**
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️ **NOTE:** `description`, `hostname`, and `custom_field_filter` fields return
+            the first match found without any warnings. If you are looking to return
+            multiple addresses, combine this data source with the
+            `phpipam.getAddresses` data source.
+            
+            ⚠️ **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return the first address it sees in the subnet. Custom fileds must contain mandatory
+            prefix `custom_`.
+            
+            Arguments are processed in the following order of precedence:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressArgs.Description">
+            <summary>
+            The description of the IP address. `subnet_id` is required
+            when using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressArgs.Hostname">
+            <summary>
+            The host name of the IP address. `subnet_id` is required when
+            using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressArgs.SubnetId">
+            <summary>
+            , and either one of `description`, `hostname`, or
+            `custom_field_filter`
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressInvokeArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️ **NOTE:** `description`, `hostname`, and `custom_field_filter` fields return
+            the first match found without any warnings. If you are looking to return
+            multiple addresses, combine this data source with the
+            `phpipam.getAddresses` data source.
+            
+            ⚠️ **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return the first address it sees in the subnet. Custom fileds must contain mandatory
+            prefix `custom_`.
+            
+            Arguments are processed in the following order of precedence:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressInvokeArgs.Description">
+            <summary>
+            The description of the IP address. `subnet_id` is required
+            when using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressInvokeArgs.Hostname">
+            <summary>
+            The host name of the IP address. `subnet_id` is required when
+            using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressInvokeArgs.SubnetId">
+            <summary>
+            , and either one of `description`, `hostname`, or
+            `custom_field_filter`
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.AddressId">
+            <summary>
+            The ID of the IP address in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.CustomFields">
+            <summary>
+            A key/value map of custom fields for this address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.Description">
+            <summary>
+            The description provided to this IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.DeviceId">
+            <summary>
+            The ID of the associated device in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.EditDate">
+            <summary>
+            The last time this resource was modified.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.ExcludePing">
+            <summary>
+            `true` if this address is excluded from ping probes.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.Hostname">
+            <summary>
+            The hostname supplied to this IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.IpAddress">
+            <summary>
+            the IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.IsGateway">
+            <summary>
+            `true` if this IP address has been designated as a gateway.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.LastSeen">
+            <summary>
+            The last time this IP address answered ping probes.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.MacAddress">
+            <summary>
+            The MAC address provided to this IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.Note">
+            <summary>
+            The note supplied to this IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.Owner">
+            <summary>
+            The owner name provided to this IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.PtrRecordId">
+            <summary>
+            The ID of the associated PTR record in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.SkipPtrRecord">
+            <summary>
+            `true` if PTR records are not being created for this IP
+            address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.StateTagId">
+            <summary>
+            The tag ID in the database for the IP address' specific
+            state. **NOTE:** This is currently represented as an integer but may change
+            to the specific string representation at a later time.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.SubnetId">
+            <summary>
+            The database ID of the subnet this IP address belongs to.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressResult.SwitchPortLabel">
+            <summary>
+            A string port label that is associated with this
+            address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return **all** addresses that contain the referenced custom field key!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesArgs.Description">
+            <summary>
+            The description of the IP address. `subnet_id` is required
+            when using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesArgs.Hostname">
+            <summary>
+            The host name of the IP address. `subnet_id` is required when
+            using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesArgs.SubnetId">
+            <summary>
+            The ID of the subnet that the address resides in. This is
+            required to search on the `description` or `hostname` fields.
+            
+            One of the following fields is required alongside `subnet_id`:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesInvokeArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return **all** addresses that contain the referenced custom field key!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesInvokeArgs.Description">
+            <summary>
+            The description of the IP address. `subnet_id` is required
+            when using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesInvokeArgs.Hostname">
+            <summary>
+            The host name of the IP address. `subnet_id` is required when
+            using this field.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetAddressesInvokeArgs.SubnetId">
+            <summary>
+            The ID of the subnet that the address resides in. This is
+            required to search on the `description` or `hostname` fields.
+            
+            One of the following fields is required alongside `subnet_id`:
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressesResult.AddressIds">
+            <summary>
+            A list of discovered IP address IDs.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetAddressesResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeAddressArgs.SubnetId">
+            <summary>
+            The ID of the subnet that the address resides in.
+            
+            **Example:**
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeAddressInvokeArgs.SubnetId">
+            <summary>
+            The ID of the subnet that the address resides in.
+            
+            **Example:**
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetFirstFreeAddressResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeSubnetArgs.SubnetId">
+            <summary>
+            The ID of the subnet to look up the subnet in.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeSubnetArgs.SubnetMask">
+            <summary>
+            Mask that will be used to look next available subnet
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeSubnetInvokeArgs.SubnetId">
+            <summary>
+            The ID of the subnet to look up the subnet in.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetFirstFreeSubnetInvokeArgs.SubnetMask">
+            <summary>
+            Mask that will be used to look next available subnet
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetFirstFreeSubnetResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetFirstFreeSubnetResult.IpAddress">
+            <summary>
+            The next available IP address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetL2domainResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetSection.InvokeAsync(Pulumi.Phpipam.GetSectionArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Section
+            
+            The `phpipam.Section` data source allows one to look up a specific section,
+            either by database ID or name. This data can then be used to manage other parts
+            of PHPIPAM, such as in the event that the section name is known but not its ID,
+            which is required for managing subnets.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Customers",
+                });
+            
+                var subnet = new Phpipam.Subnet("subnet", new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.SectionId),
+                    SubnetAddress = "10.10.3.0",
+                    SubnetMask = 24,
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetSection.Invoke(Pulumi.Phpipam.GetSectionInvokeArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Section
+            
+            The `phpipam.Section` data source allows one to look up a specific section,
+            either by database ID or name. This data can then be used to manage other parts
+            of PHPIPAM, such as in the event that the section name is known but not its ID,
+            which is required for managing subnets.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Customers",
+                });
+            
+                var subnet = new Phpipam.Subnet("subnet", new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.SectionId),
+                    SubnetAddress = "10.10.3.0",
+                    SubnetMask = 24,
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSectionArgs.Name">
+            <summary>
+            The name of the section to look up.
+            
+            One of `section_id` or `name` must be supplied. If both are supplied,
+            `section_id` is used.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSectionArgs.SectionId">
+            <summary>
+            The ID of the section to look up.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSectionInvokeArgs.Name">
+            <summary>
+            The name of the section to look up.
+            
+            One of `section_id` or `name` must be supplied. If both are supplied,
+            `section_id` is used.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSectionInvokeArgs.SectionId">
+            <summary>
+            The ID of the section to look up.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.Description">
+            <summary>
+            The section's description.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.DisplayOrder">
+            <summary>
+            The section's display order number.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.DnsResolverId">
+            <summary>
+            The ID of the DNS resolver to use in the section.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.EditDate">
+            <summary>
+            The date this resource was last edited.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.MasterSectionId">
+            <summary>
+            The ID of the parent section in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.Name">
+            <summary>
+            The name of the section.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.Permissions">
+            <summary>
+            A JSON representation of permissions for this section.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.SectionId">
+            <summary>
+            The ID of the section in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.ShowSupernetOnly">
+            <summary>
+            `true` if supernets are only being shown in the subnet
+            listing.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.ShowVlanInSubnetListing">
+            <summary>
+            `true` if VLANs are being shown in the subnet
+            listing for this section.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.ShowVrfInSubnetListing">
+            <summary>
+            `true` if VRFs are being shown in the subnet
+            listing for this section.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.StrictMode">
+            <summary>
+            `true` if this subnet is set up to check that IP addresses
+            are valid for the subnets they are in.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSectionResult.SubnetOrdering">
+            <summary>
+            How subnets in this section are ordered.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetSubnet.InvokeAsync(Pulumi.Phpipam.GetSubnetArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Subnet
+            
+            The `phpipam.Subnet` data source gets information on a subnet such as its ID
+            (required for creating addresses), description, and more.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SubnetAddress = "10.10.2.0",
+                    SubnetMask = 24,
+                });
+            
+                // Reserve the address.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = "10.10.2.10",
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example with `description_match`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = 1,
+                    DescriptionMatch = "[Cc]ustomer 2",
+                });
+            
+                var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                });
+            
+                // Reserve the address. Note that we use ignore_changes here to ensure that we
+                // don't end up re-allocating this address on future Terraform runs.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = nextAddress.Apply(getFirstFreeAddressResult =&gt; getFirstFreeAddressResult.IpAddress),
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `custom_field_filter`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = 1,
+                    CustomFieldFilter = 
+                    {
+                        { "custom_CustomTestSubnets", ".*terraform.*" },
+                    },
+                });
+            
+                var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                });
+            
+                // Reserve the address. Note that we use ignore_changes here to ensure that we
+                // don't end up re-allocating this address on future Terraform runs.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = nextAddress.Apply(getFirstFreeAddressResult =&gt; getFirstFreeAddressResult.IpAddress),
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example how to get gateway IP address by subnet_id:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Subnet Section",
+                });
+            
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.Id),
+                    DescriptionMatch = "prod_mgmt",
+                });
+            
+                var gateway = Phpipam.GetAddress.Invoke(new()
+                {
+                    AddressId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.GatewayId),
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetSubnet.Invoke(Pulumi.Phpipam.GetSubnetInvokeArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Subnet
+            
+            The `phpipam.Subnet` data source gets information on a subnet such as its ID
+            (required for creating addresses), description, and more.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SubnetAddress = "10.10.2.0",
+                    SubnetMask = 24,
+                });
+            
+                // Reserve the address.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = "10.10.2.10",
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example with `description_match`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = 1,
+                    DescriptionMatch = "[Cc]ustomer 2",
+                });
+            
+                var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                });
+            
+                // Reserve the address. Note that we use ignore_changes here to ensure that we
+                // don't end up re-allocating this address on future Terraform runs.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = nextAddress.Apply(getFirstFreeAddressResult =&gt; getFirstFreeAddressResult.IpAddress),
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example With `custom_field_filter`:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = 1,
+                    CustomFieldFilter = 
+                    {
+                        { "custom_CustomTestSubnets", ".*terraform.*" },
+                    },
+                });
+            
+                var nextAddress = Phpipam.GetFirstFreeAddress.Invoke(new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                });
+            
+                // Reserve the address. Note that we use ignore_changes here to ensure that we
+                // don't end up re-allocating this address on future Terraform runs.
+                var newip = new Phpipam.Address("newip", new()
+                {
+                    SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.SubnetId),
+                    IpAddress = nextAddress.Apply(getFirstFreeAddressResult =&gt; getFirstFreeAddressResult.IpAddress),
+                    Hostname = "tf-test-host.example.internal",
+                    Description = "Managed by Terraform",
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            
+            **Example how to get gateway IP address by subnet_id:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Subnet Section",
+                });
+            
+                var subnet = Phpipam.GetSubnet.Invoke(new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.Id),
+                    DescriptionMatch = "prod_mgmt",
+                });
+            
+                var gateway = Phpipam.GetAddress.Invoke(new()
+                {
+                    AddressId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.GatewayId),
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️  **NOTE:** Searches with the `description`, `description_match` and
+            `custom_field_filter` fields return the first match found without any warnings.
+            Conversely, the resource fails if it somehow finds multiple results on a CIDR
+            (subnet and mask) search - this is to assert that you are getting the subnet you
+            requested. If you want to return multiple results, combine this data source with
+            the `phpipam.getSubnets` data source. Custom fileds must contain
+            mandatory prefix `custom_`.
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return the first subnetit sees in the section.
+            
+            Arguments are processed in the following order of precedence:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.Description">
+            <summary>
+            The subnet's description. `section_id` is required if you
+            want to use this option.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.DescriptionMatch">
+            <summary>
+            A regular expression to match against when searching
+            for a subnet. `section_id` is required if you want to use this option.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.SectionId">
+            <summary>
+            , and either one of `description`, `description_match`, or
+            `custom_field_filter`
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.SubnetAddress">
+            <summary>
+            and `subnet_mask`
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetArgs.SubnetMask">
+            <summary>
+            The subnet mask, in bits, of the subnet to look up.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions that follow the RE2 syntax for which you can
+            find documentation [here](https://github.com/google/re2/wiki/Syntax). All
+            fields need to match for the match to succeed.
+            
+            ⚠️  **NOTE:** Searches with the `description`, `description_match` and
+            `custom_field_filter` fields return the first match found without any warnings.
+            Conversely, the resource fails if it somehow finds multiple results on a CIDR
+            (subnet and mask) search - this is to assert that you are getting the subnet you
+            requested. If you want to return multiple results, combine this data source with
+            the `phpipam.getSubnets` data source. Custom fileds must contain
+            mandatory prefix `custom_`.
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return the first subnetit sees in the section.
+            
+            Arguments are processed in the following order of precedence:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.Description">
+            <summary>
+            The subnet's description. `section_id` is required if you
+            want to use this option.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.DescriptionMatch">
+            <summary>
+            A regular expression to match against when searching
+            for a subnet. `section_id` is required if you want to use this option.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.SectionId">
+            <summary>
+            , and either one of `description`, `description_match`, or
+            `custom_field_filter`
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.SubnetAddress">
+            <summary>
+            and `subnet_mask`
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetInvokeArgs.SubnetMask">
+            <summary>
+            The subnet mask, in bits, of the subnet to look up.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.AllowIpRequests">
+            <summary>
+            `true` if the subnet allows IP requests in PHPIPAM.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.CreatePtrRecords">
+            <summary>
+            `true` if PTR records are created for addresses in
+            this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.CustomFields">
+            <summary>
+            A key/value map of custom fields for this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.Description">
+            <summary>
+            The description set for the subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.DisplayHostnames">
+            <summary>
+            `true` if hostnames are displayed instead of IP
+            addresses in the address listing for this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.Gateway">
+            <summary>
+            Key map of values: ip_addr, id. ip_addr - this is gateway IP address
+            (like 192.168.1.254). id - gateway ip ID
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.GatewayId">
+            <summary>
+            The ID of gateway IP address fot this subnet
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.HostDiscoveryEnabled">
+            <summary>
+            `true` if this subnet is included in new host
+            scans.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.IncludeInPing">
+            <summary>
+            `true` if this subnet is included in ping probes.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.IsFolder">
+            <summary>
+            `true` if this subnet is a folder and not an actual subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.IsFull">
+            <summary>
+            `true` if the subnet has been marked as full.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.LinkedSubnetId">
+            <summary>
+            The ID of the linked subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.LocationId">
+            <summary>
+            The ID of the location for this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.MasterSubnetId">
+            <summary>
+            The ID of the parent subnet for this subnet in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.NameserverId">
+            <summary>
+            The ID of the nameserver used to assign PTR records for
+            this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.Permissions">
+            <summary>
+            A JSON representation of the permissions associated with this
+            subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.ResolveDns">
+            <summary>
+            `true` if enabled resolving of DNS names.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.ScanAgentId">
+            <summary>
+            The ID of the ping scan agent that is used for this subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.SectionId">
+            <summary>
+            The ID of the section for this address in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.ShowName">
+            <summary>
+            `true` if the subnet name is are shown in the section, instead
+            of the network address.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.SubnetAddress">
+            <summary>
+            The network address of the subnet.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.SubnetId">
+            <summary>
+            The ID of the subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.SubnetMask">
+            <summary>
+            The subnet mask, in bits.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.UtilizationThreshold">
+            <summary>
+            The subnet's utilization threshold.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.VlanId">
+            <summary>
+            The ID of the VLAN for this subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetResult.VrfId">
+            <summary>
+            The ID of the VRF for this subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions. All fields need to match for the match to
+            succeed.
+            
+            You can find documentation for the regular expression syntax used with the
+            `description_match` and `custom_field_filter` attributes
+            [here](https://github.com/google/re2/wiki/Syntax).
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return **all** subnets that contain the referenced custom field key!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsArgs.Description">
+            <summary>
+            The subnet's description.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsArgs.DescriptionMatch">
+            <summary>
+            A regular expression to match against when searching
+            for a subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsArgs.SectionId">
+            <summary>
+            The ID of the section of the subnet.
+            
+            One of the following below parameters is required:
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsInvokeArgs.CustomFieldFilter">
+            <summary>
+            A map of custom fields to search for. The filter
+            values are regular expressions. All fields need to match for the match to
+            succeed.
+            
+            You can find documentation for the regular expression syntax used with the
+            `description_match` and `custom_field_filter` attributes
+            [here](https://github.com/google/re2/wiki/Syntax).
+            
+            ⚠️  **NOTE:** An empty or unspecified `custom_field_filter` value is the
+            equivalent to a regular expression that matches everything, and hence will
+            return **all** subnets that contain the referenced custom field key!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsInvokeArgs.Description">
+            <summary>
+            The subnet's description.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsInvokeArgs.DescriptionMatch">
+            <summary>
+            A regular expression to match against when searching
+            for a subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetSubnetsInvokeArgs.SectionId">
+            <summary>
+            The ID of the section of the subnet.
+            
+            One of the following below parameters is required:
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetsResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetSubnetsResult.SubnetIds">
+            <summary>
+            A list of subnet IDs that match the given criteria.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetVlan.InvokeAsync(Pulumi.Phpipam.GetVlanArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Vlan
+            
+            The `phpipam.Vlan` data source allows one to look up a VLAN in the PHPIPAM
+            database. This can then be used to assign a VLAN to a subnet in the
+            `phpipam.Subnet` resource. It can also be used
+            to gather other information on the VLAN.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Customers",
+                });
+            
+                var vlan = Phpipam.GetVlan.Invoke(new()
+                {
+                    Number = 1000,
+                });
+            
+                var subnet = new Phpipam.Subnet("subnet", new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.SectionId),
+                    SubnetAddress = "10.10.3.0",
+                    SubnetMask = 24,
+                    VlanId = vlan.Apply(getVlanResult =&gt; getVlanResult.VlanId),
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.GetVlan.Invoke(Pulumi.Phpipam.GetVlanInvokeArgs,Pulumi.InvokeOptions)">
+            <summary>
+            ## # phpipam.Vlan
+            
+            The `phpipam.Vlan` data source allows one to look up a VLAN in the PHPIPAM
+            database. This can then be used to assign a VLAN to a subnet in the
+            `phpipam.Subnet` resource. It can also be used
+            to gather other information on the VLAN.
+            
+            **Example:**
+            
+            &lt;!--Start PulumiCodeChooser --&gt;
+            ```csharp
+            using System.Collections.Generic;
+            using System.Linq;
+            using Pulumi;
+            using Phpipam = Pulumi.Phpipam;
+            
+            return await Deployment.RunAsync(() =&gt; 
+            {
+                var section = Phpipam.GetSection.Invoke(new()
+                {
+                    Name = "Customers",
+                });
+            
+                var vlan = Phpipam.GetVlan.Invoke(new()
+                {
+                    Number = 1000,
+                });
+            
+                var subnet = new Phpipam.Subnet("subnet", new()
+                {
+                    SectionId = section.Apply(getSectionResult =&gt; getSectionResult.SectionId),
+                    SubnetAddress = "10.10.3.0",
+                    SubnetMask = 24,
+                    VlanId = vlan.Apply(getVlanResult =&gt; getVlanResult.VlanId),
+                });
+            
+            });
+            ```
+            &lt;!--End PulumiCodeChooser --&gt;
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanArgs.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanArgs.Number">
+            <summary>
+            The number of the VLAN to look up.
+            
+            One of `vlan_id` or `number` must be supplied. If both are supplied,
+            `vlan_id` is used.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanArgs.VlanId">
+            <summary>
+            The ID of the VLAN to look up. **NOTE:** this is the database ID,
+            not the VLAN number - if you need this, use the `number` parameter.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanInvokeArgs.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanInvokeArgs.Number">
+            <summary>
+            The number of the VLAN to look up.
+            
+            One of `vlan_id` or `number` must be supplied. If both are supplied,
+            `vlan_id` is used.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.GetVlanInvokeArgs.VlanId">
+            <summary>
+            The ID of the VLAN to look up. **NOTE:** this is the database ID,
+            not the VLAN number - if you need this, use the `number` parameter.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.CustomFields">
+            <summary>
+            A key/value map of custom fields for this VLAN.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.Description">
+            <summary>
+            The description supplied to the VLAN.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.Id">
+            <summary>
+            The provider-assigned unique ID for this managed resource.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.Name">
+            <summary>
+            The name/label of the VLAN.
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.Number">
+            <summary>
+            The number of the VLAN (the actual VLAN ID on your switch).
+            </summary>
+        </member>
+        <member name="F:Pulumi.Phpipam.GetVlanResult.VlanId">
+            <summary>
+            The ID of the VLAN to look up. **NOTE:** this is the database ID,
+            not the VLAN number - if you need this, use the `number` parameter.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.L2domain.#ctor(System.String,Pulumi.Phpipam.L2domainArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a L2domain resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.L2domain.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.L2domainState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing L2domain resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="T:Pulumi.Phpipam.Provider">
+            <summary>
+            The provider type for the phpipam package. By default, resources use package-wide configuration
+            settings, however an explicit `Provider` instance may be created and passed during resource
+            construction to achieve fine-grained programmatic control over provider settings. See the
+            [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Provider.AppId">
+            <summary>
+            The application ID required for API requests
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Provider.Endpoint">
+            <summary>
+            The full URL (plus path) to the API endpoint
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Provider.Password">
+            <summary>
+            The password of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Provider.Username">
+            <summary>
+            The username of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.Provider.#ctor(System.String,Pulumi.Phpipam.ProviderArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a Provider resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.AppId">
+            <summary>
+            The application ID required for API requests
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.Endpoint">
+            <summary>
+            The full URL (plus path) to the API endpoint
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.Insecure">
+            <summary>
+            Whether server should be accessed without verifying the TLS certificate.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.NestCustomFields">
+            <summary>
+            Whether the API client is configured to nest custom values.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.Password">
+            <summary>
+            The password of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.ProviderArgs.Username">
+            <summary>
+            The username of the PHPIPAM account
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.Description">
+            <summary>
+            The section's description.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.DisplayOrder">
+            <summary>
+            The section's display order number.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.DnsResolverId">
+            <summary>
+            The ID of the DNS resolver to use in the
+            section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.EditDate">
+            <summary>
+            The date this resource was last edited.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.MasterSectionId">
+            <summary>
+            The ID of the parent section in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.Name">
+            <summary>
+            The name of the section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.SectionId">
+            <summary>
+            The ID of the section in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.ShowSupernetOnly">
+            <summary>
+            `true` if supernets are only being shown in
+            the subnet listing.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.ShowVlanInSubnetListing">
+            <summary>
+            `true` if VLANs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.ShowVrfInSubnetListing">
+            <summary>
+            `true` if VRFs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.StrictMode">
+            <summary>
+            `true` if this subnet is set up to check that IP
+            addresses are valid for the subnets they are in.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Section.SubnetOrdering">
+            <summary>
+            How subnets in this section are ordered.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.Section.#ctor(System.String,Pulumi.Phpipam.SectionArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a Section resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.Section.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.SectionState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing Section resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.Description">
+            <summary>
+            The section's description.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.DisplayOrder">
+            <summary>
+            The section's display order number.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.DnsResolverId">
+            <summary>
+            The ID of the DNS resolver to use in the
+            section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.MasterSectionId">
+            <summary>
+            The ID of the parent section in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.Name">
+            <summary>
+            The name of the section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.ShowSupernetOnly">
+            <summary>
+            `true` if supernets are only being shown in
+            the subnet listing.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.ShowVlanInSubnetListing">
+            <summary>
+            `true` if VLANs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.ShowVrfInSubnetListing">
+            <summary>
+            `true` if VRFs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.StrictMode">
+            <summary>
+            `true` if this subnet is set up to check that IP
+            addresses are valid for the subnets they are in.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionArgs.SubnetOrdering">
+            <summary>
+            How subnets in this section are ordered.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.Description">
+            <summary>
+            The section's description.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.DisplayOrder">
+            <summary>
+            The section's display order number.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.DnsResolverId">
+            <summary>
+            The ID of the DNS resolver to use in the
+            section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.EditDate">
+            <summary>
+            The date this resource was last edited.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.MasterSectionId">
+            <summary>
+            The ID of the parent section in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.Name">
+            <summary>
+            The name of the section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.SectionId">
+            <summary>
+            The ID of the section in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.ShowSupernetOnly">
+            <summary>
+            `true` if supernets are only being shown in
+            the subnet listing.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.ShowVlanInSubnetListing">
+            <summary>
+            `true` if VLANs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.ShowVrfInSubnetListing">
+            <summary>
+            `true` if VRFs are being shown in
+            the subnet listing for this section.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.StrictMode">
+            <summary>
+            `true` if this subnet is set up to check that IP
+            addresses are valid for the subnets they are in.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SectionState.SubnetOrdering">
+            <summary>
+            How subnets in this section are ordered.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.AllowIpRequests">
+            <summary>
+            `true` if the subnet allows IP requests in
+            PHPIPAM.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.CreatePtrRecords">
+            <summary>
+            `true` if PTR records are created for
+            addresses in this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            subnet.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.Description">
+            <summary>
+            The description set for the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.DisplayHostnames">
+            <summary>
+            `true` if hostnames are displayed instead of
+            IP addresses in the address listing for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.HostDiscoveryEnabled">
+            <summary>
+            `true` if this subnet is included in
+            new host scans.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.IncludeInPing">
+            <summary>
+            `true` if this subnet is included in ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.IsFolder">
+            <summary>
+            `true` if this subnet is a folder and not an actual
+            subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.IsFull">
+            <summary>
+            `true` if the subnet has been marked as full.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.LinkedSubnetId">
+            <summary>
+            The ID of the linked subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.LocationId">
+            <summary>
+            The ID of the location for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.MasterSubnetId">
+            <summary>
+            The ID of the parent subnet for this subnet
+            in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.NameserverId">
+            <summary>
+            The ID of the nameserver used to assign PTR
+            records for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.Permissions">
+            <summary>
+            A JSON representation of the permissions associated with this
+            subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.ResolveDns">
+            <summary>
+            `true` if enabled resolving of DNS names.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.ScanAgentId">
+            <summary>
+            The ID of the ping scan agent that is used for
+            this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.SectionId">
+            <summary>
+            The ID of the section for this address in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.ShowName">
+            <summary>
+            `true` if the subnet name is are shown in the
+            section, instead of the network address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.SubnetAddress">
+            <summary>
+            The network address of the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.SubnetId">
+            <summary>
+            The ID of the subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.SubnetMask">
+            <summary>
+            The subnet mask, in bits.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.UtilizationThreshold">
+            <summary>
+            The subnet's utilization threshold.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.VlanId">
+            <summary>
+            The ID of the VLAN for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Subnet.VrfId">
+            <summary>
+            The ID of the VRF for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.Subnet.#ctor(System.String,Pulumi.Phpipam.SubnetArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a Subnet resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.Subnet.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.SubnetState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing Subnet resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.AllowIpRequests">
+            <summary>
+            `true` if the subnet allows IP requests in
+            PHPIPAM.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.CreatePtrRecords">
+            <summary>
+            `true` if PTR records are created for
+            addresses in this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            subnet.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.Description">
+            <summary>
+            The description set for the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.DisplayHostnames">
+            <summary>
+            `true` if hostnames are displayed instead of
+            IP addresses in the address listing for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.HostDiscoveryEnabled">
+            <summary>
+            `true` if this subnet is included in
+            new host scans.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.IncludeInPing">
+            <summary>
+            `true` if this subnet is included in ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.IsFolder">
+            <summary>
+            `true` if this subnet is a folder and not an actual
+            subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.IsFull">
+            <summary>
+            `true` if the subnet has been marked as full.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.LinkedSubnetId">
+            <summary>
+            The ID of the linked subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.LocationId">
+            <summary>
+            The ID of the location for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.MasterSubnetId">
+            <summary>
+            The ID of the parent subnet for this subnet
+            in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.NameserverId">
+            <summary>
+            The ID of the nameserver used to assign PTR
+            records for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.ResolveDns">
+            <summary>
+            `true` if enabled resolving of DNS names.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.ScanAgentId">
+            <summary>
+            The ID of the ping scan agent that is used for
+            this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.SectionId">
+            <summary>
+            The ID of the section for this address in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.ShowName">
+            <summary>
+            `true` if the subnet name is are shown in the
+            section, instead of the network address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.SubnetAddress">
+            <summary>
+            The network address of the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.SubnetMask">
+            <summary>
+            The subnet mask, in bits.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.UtilizationThreshold">
+            <summary>
+            The subnet's utilization threshold.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.VlanId">
+            <summary>
+            The ID of the VLAN for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetArgs.VrfId">
+            <summary>
+            The ID of the VRF for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.AllowIpRequests">
+            <summary>
+            `true` if the subnet allows IP requests in
+            PHPIPAM.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.CreatePtrRecords">
+            <summary>
+            `true` if PTR records are created for
+            addresses in this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            subnet.
+            
+            ⚠️  **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            Custom fileds must contain mandatory prefix `custom_`.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.Description">
+            <summary>
+            The description set for the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.DisplayHostnames">
+            <summary>
+            `true` if hostnames are displayed instead of
+            IP addresses in the address listing for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.HostDiscoveryEnabled">
+            <summary>
+            `true` if this subnet is included in
+            new host scans.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.IncludeInPing">
+            <summary>
+            `true` if this subnet is included in ping
+            probes.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.IsFolder">
+            <summary>
+            `true` if this subnet is a folder and not an actual
+            subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.IsFull">
+            <summary>
+            `true` if the subnet has been marked as full.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.LinkedSubnetId">
+            <summary>
+            The ID of the linked subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.LocationId">
+            <summary>
+            The ID of the location for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.MasterSubnetId">
+            <summary>
+            The ID of the parent subnet for this subnet
+            in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.NameserverId">
+            <summary>
+            The ID of the nameserver used to assign PTR
+            records for this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.Permissions">
+            <summary>
+            A JSON representation of the permissions associated with this
+            subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.ResolveDns">
+            <summary>
+            `true` if enabled resolving of DNS names.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.ScanAgentId">
+            <summary>
+            The ID of the ping scan agent that is used for
+            this subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.SectionId">
+            <summary>
+            The ID of the section for this address in the
+            PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.ShowName">
+            <summary>
+            `true` if the subnet name is are shown in the
+            section, instead of the network address.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.SubnetAddress">
+            <summary>
+            The network address of the subnet.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.SubnetId">
+            <summary>
+            The ID of the subnet in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.SubnetMask">
+            <summary>
+            The subnet mask, in bits.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.UtilizationThreshold">
+            <summary>
+            The subnet's utilization threshold.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.VlanId">
+            <summary>
+            The ID of the VLAN for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.SubnetState.VrfId">
+            <summary>
+            The ID of the VRF for this subnet in the PHPIPAM
+            database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            VLAN.
+            
+            ⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.Description">
+            <summary>
+            The description supplied to the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.Name">
+            <summary>
+            The name/label of the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.Number">
+            <summary>
+            The number of the VLAN (the actual VLAN ID on your switch).
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.Vlan.VlanId">
+            <summary>
+            The ID of the VLAN to look up. **NOTE:** this is the database ID,
+            not the VLAN number - if you need this, use the `number` parameter.
+            </summary>
+        </member>
+        <member name="M:Pulumi.Phpipam.Vlan.#ctor(System.String,Pulumi.Phpipam.VlanArgs,Pulumi.CustomResourceOptions)">
+             <summary>
+             Create a Vlan resource with the given unique name, arguments, and options.
+             </summary>
+            
+             <param name="name">The unique name of the resource</param>
+             <param name="args">The arguments used to populate this resource's properties</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="M:Pulumi.Phpipam.Vlan.Get(System.String,Pulumi.Input{System.String},Pulumi.Phpipam.VlanState,Pulumi.CustomResourceOptions)">
+             <summary>
+             Get an existing Vlan resource's state with the given name, ID, and optional extra
+             properties used to qualify the lookup.
+             </summary>
+            
+             <param name="name">The unique name of the resulting resource.</param>
+             <param name="id">The unique provider ID of the resource to lookup.</param>
+             <param name="state">Any extra arguments used during the lookup.</param>
+             <param name="options">A bag of options that control this resource's behavior</param>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanArgs.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            VLAN.
+            
+            ⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanArgs.Description">
+            <summary>
+            The description supplied to the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanArgs.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanArgs.Name">
+            <summary>
+            The name/label of the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanArgs.Number">
+            <summary>
+            The number of the VLAN (the actual VLAN ID on your switch).
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.CustomFields">
+            <summary>
+            A key/value map of custom fields for this
+            VLAN.
+            
+            ⚠️ **NOTE on custom fields:** PHPIPAM installations with custom fields must have
+            all fields set to optional when using this plugin. For more info see
+            [here](https://github.com/phpipam/phpipam/issues/1073). Further to this, either
+            ensure that your fields also do not have default values, or ensure the default
+            is set in your TF configuration. Diff loops may happen otherwise!
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.Description">
+            <summary>
+            The description supplied to the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.EditDate">
+            <summary>
+            The date this resource was last updated.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.L2DomainId">
+            <summary>
+            The layer 2 domain ID in the PHPIPAM database.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.Name">
+            <summary>
+            The name/label of the VLAN.
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.Number">
+            <summary>
+            The number of the VLAN (the actual VLAN ID on your switch).
+            </summary>
+        </member>
+        <member name="P:Pulumi.Phpipam.VlanState.VlanId">
+            <summary>
+            The ID of the VLAN to look up. **NOTE:** this is the database ID,
+            not the VLAN number - if you need this, use the `number` parameter.
+            </summary>
+        </member>
+    </members>
+</doc>

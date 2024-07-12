@@ -1,0 +1,15 @@
+/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net8.0/Pulumi.Phpipam.deps.json
+/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net8.0/Pulumi.Phpipam.dll
+/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net8.0/Pulumi.Phpipam.pdb
+/home/local/source/pulumi-phpipam/sdk/dotnet/bin/Debug/net8.0/Pulumi.Phpipam.xml
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.csproj.AssemblyReference.cache
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.GeneratedMSBuildEditorConfig.editorconfig
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.AssemblyInfoInputs.cache
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.AssemblyInfo.cs
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.csproj.CoreCompileInputs.cache
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.sourcelink.json
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.dll
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/refint/Pulumi.Phpipam.dll
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.xml
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/Pulumi.Phpipam.pdb
+/home/local/source/pulumi-phpipam/sdk/dotnet/obj/Debug/net8.0/ref/Pulumi.Phpipam.dll
