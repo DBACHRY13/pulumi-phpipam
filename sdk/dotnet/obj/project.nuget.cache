@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YRMi1knWXsrEaqv2r+3RCHb8NDztVIsttYJ9FOXjZ0WgUwQ/Mbu1fvKBBvAKNMksgSPiRzPS4JnPTtncTzj4EQ==",
+  "dgSpecHash": "FP+H8DhJ2gedHR/bOjznaAf21pno2CBFaRdHBZS1RXLYq4mJvyhT3EYoVMI4SlAuSpzVEs2W14QLfty6MKtMkw==",
   "success": true,
   "projectFilePath": "/home/local/source/pulumi-phpipam/sdk/dotnet/Pulumi.Phpipam.csproj",
   "expectedPackageFiles": [
@@ -29,9 +29,7 @@
     "/home/local/.nuget/packages/serilog.sinks.console/4.0.1/serilog.sinks.console.4.0.1.nupkg.sha512",
     "/home/local/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/local/.nuget/packages/system.reflection.metadata/5.0.0/system.reflection.metadata.5.0.0.nupkg.sha512",
-    "/home/local/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-    "/home/local/.nuget/packages/microsoft.netcore.app.ref/6.0.32/microsoft.netcore.app.ref.6.0.32.nupkg.sha512",
-    "/home/local/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.32/microsoft.aspnetcore.app.ref.6.0.32.nupkg.sha512"
+    "/home/local/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
   ],
   "logs": []
 }
